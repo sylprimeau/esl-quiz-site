@@ -1,0 +1,7 @@
+## Redirect HTTP requests as HTTPS
+#RewriteEngine On
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+##Enable HSTS
+#Header set Strict-Transport-Security "max-age=31536000" env=HTTPS

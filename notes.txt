@@ -1,0 +1,192 @@
+
+******* RATINGS *******
+
+- user sees current rating when no mouseover
+- when user hovers over stars, all stars turn grey by default but turn yellow up to the point that the user is hovering
+- user clicks to vote
+- user gets dialog confirming vote with OK or cancel
+	- if cancel, nothing happens
+	- if OK, vote is registered
+- rating goes back to showing the quiz's rating and hovering doesn't do anything anymore
+- user cannot vote more than once
+
+
+
+
+
+	******* FEATURES TO ADD *********
+	
+	Total time spent online
+	Avg time per quiz by level and total
+	Time spent on each individual quiz
+	List of quizzes you have authored
+	Ratings for your authored quizzes
+	Ability to reset all your stats to zero
+	Badges for:
+		Completed 1, 10, 25, 50, 100, 200, etc. quizzes
+		Created 1, 5, 10, etc. quizzes
+
+
+
+
+****** THE QUESTIONS ******
+
+
+Level 1 - Make the questions as easy as you can without actually giving away the answer
+	- time, months, colors, shapes, very basic vocabulary, very basic grammar, etc., everything should be present, past or future tense. Basic conversation such as greetings, etc.
+	
+Level 2 - A bit harder than Level 1 but not much. Add past tense and future 
+
+
+
+
+Level 5 - A native speaker would find it difficult to get 100%
+
+
+
+
+
+
+
+
+
+Just in case you ever need this again...
+
+var quizzes = [{
+	creator: "Syl",
+	language: "English",
+	level: 1,
+	category: "geography",
+	topic: "",
+	randomProblems: true,
+	randomAnswers: true,
+	problems: [{
+		question: "What is the national anthem of Canada?",
+		answerChoices: ["Woah Canada!", "Hey Canada!", "Oh Canada!", "O Canada!"],
+		correctAns: 3,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "In which country can you find the Grand Canyon?",
+		answerChoices: ["Germany", "United States of America", "Canada", "Alaska"],
+		correctAns: 1,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "On which continent is Libya?",
+		answerChoices: ["North America", "Australia", "Europe", "Africa"],
+		correctAns: 3,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "Kuala Lumpur is in which country?",
+		answerChoices: ["Malaysia", "Thailand", "Indonesia", "Philippines"],
+		correctAns: 0,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "Which city in Japan is famous for its okonomiyaki?",
+		answerChoices: ["Tokyo", "Nagoya", "Osaka", "Fukuoka"],
+		correctAns: 2,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }]
+}, {
+	creator: "Syl",
+	language: "English",
+	level: 2,
+	category: "vocabulary",
+	topic: "",
+	randomProblems: true,
+	randomAnswers: true,
+	problems: [{
+		question: "What is the best synonym for 'happy'?",
+		answerChoices: ["Ambivalent", "Jealous", "Glad", "Smiling"],
+		correctAns: 2,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "What is the synonym of 'cold'?",
+		answerChoices: ["Wide", "Frigid", "Deserted", "Friendly"],
+		correctAns: 1,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "Choose the most appropriate group of synonyms for 'very good'.",
+		answerChoices: ["Amazing, incredible, surprising, excellent", "Incredible, awesome, sick, off the hook", "Excellent, dependable, amazing, superb", "Awesome, repulsive, superlative, off the hook"],
+		correctAns: 1,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }]
+}, {
+	creator: "Syl",
+	language: "English",
+	level: 2,
+	category: "vocabulary",
+	topic: "",
+	randomProblems: true,
+	randomAnswers: true,
+	problems: [{
+		question: "What is the best antonym for 'happy'?",
+		answerChoices: ["Ambivalent", "Jealous", "Glad", "Angry"],
+		correctAns: 3,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "What is the antonym of 'cold'?",
+		answerChoices: ["Hot", "Frigid", "Deserted", "Friendly"],
+		correctAns: 0,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }, {
+		question: "What's the antonym of 'sad'",
+		answerChoices: ["Happy", "Excited", "Depressed", "Anxious"],
+		correctAns: 0,
+		notes: "",
+		flagged: false,
+		flagCode: "",
+		picLoc: "",
+		audLoc: "",
+		vidLoc: ""
+  }]
+}];

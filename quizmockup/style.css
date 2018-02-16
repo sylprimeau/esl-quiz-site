@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+}
+
+body {
+	background: #eee;
+}
+
+.levels {
+	display: none;
+}
+
+.categories {
+	display: none;
+}
+
+.category-div {
+	background: #666;
+	color: white;
+	height: 5vh;
+	line-height: 5vh;
+	max-width: 60vw;
+	margin: 3vh auto;
+	text-align: center;
+	font-size: 4vh;
+}
+
+.question-div {
+	background: lightgrey;
+	height: 12vh;
+	width: 90vw;
+	margin: 3vh auto;
+}
+
+.answer-btn {
+	background: lightblue;
+	margin: 2vh auto;
+	height: 12vh;
+	width: 80vw;
+}
+
+.question-text, .answer-text {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 95%;
+	margin: auto;
+}
+
