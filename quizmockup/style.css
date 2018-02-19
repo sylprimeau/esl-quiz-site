@@ -2,17 +2,101 @@
 	margin: 0;
 }
 
-body {
-	background: #eee;
-}
-
-.levels {
+.hide {
 	display: none;
 }
 
-.categories {
-	display: none;
+nav {
+	height: 2em;
+	color: #fff;
+	background-color: #000;
+	position: relative;
 }
+
+.hamburger-menu {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 3em;
+	cursor: pointer;
+}
+
+.hamburger-menu > .lines {
+	position: relative;
+	top: 20%;
+	height: 10%;
+	border-radius: 25%;
+	width: 40%;
+	margin: 0 auto;
+	margin-bottom: 10%;
+	background-color: #fff;
+}
+
+.login-btn {
+	position: absolute;
+	background-color: #444;
+	right: 0;
+	width: 8em;
+	text-align: center;
+	line-height: 2em;
+	cursor: pointer;
+}
+
+.login-btn:hover {
+	background-color: #777;
+}
+
+.filters-btn {
+	background-color: #444;
+	line-height: 1.5em;
+	height: 1.5em;
+	width: 10em;
+	margin: 0.5em auto;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+
+.filters-btn:hover {
+	background-color: #777;
+}
+
+.filters-div {
+	width: 15em;
+	border: 1px solid #444;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.levels-div {
+	margin-bottom: 4em;
+}
+
+.level-btn, .category-btn {
+	margin: 0 auto;
+	font-size: 2em;
+	text-align: center;
+	background-color: #ccc;
+}
+
+.level-btn:hover, .category-btn:hover {
+	background-color: #aaa;
+}
+
+.level-btn.selected {
+	background-color: #fff
+}
+
+.category-btn.selected {
+	background-color: #fff
+}
+
+
+
+
+
 
 .category-div {
 	background: #666;

@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<title>This is the title</title>
 	</head>
+	
 	<body>
-		<div class="category-div">Grammar</div>
-		<div class="question-div">
-			<p class="question-text">How many characters does this question have? I have no idea but I'd better figure it out otherwise it won't work right on al</p>
+	
+		<header>
+			<nav>
+				<div class="hamburger-menu">
+					<div class="lines"></div>
+					<div class="lines"></div>
+					<div class="lines"></div>
+				</div>
+				<div class="login-btn">
+					<span>Login/Sign up</span>
+				</div>
+			</nav>
+		</header>
+		
+		<div class="filters-btn">
+			<p>Filters</p>
 		</div>
-		<div class="answers">
-			<div class="answer-btn">
-				<p class="answer-text">This is answer A and it's a really long answer so it will wrap around!</p>
+		
+		<div class="filters-div hide">
+			<div class="levels-div">
+				<div class="level-btn selected">Basic</div>
+				<div class="level-btn">Easy</div>
+				<div class="level-btn">Medium</div>
+				<div class="level-btn">Hard</div>
+				<div class="level-btn">Native</div>
 			</div>
-			<div class="answer-btn">
-				<p class="answer-text">This is answer B and it's a really long answer so it will wrap around!</p>
-			</div>
-			<div class="answer-btn">
-				<p class="answer-text">This is answer C and it's a really long answer so it will wrap around three times man! How cool is that? </p>
-			</div>
-			<div class="answer-btn">
-				<p class="answer-text">This is answer D</p>
+
+			<div class="categories-div">
+				<div class="category-btn selected">Vocabulary</div>
+				<div class="category-btn">Grammar</div>
+				<div class="category-btn">Pronunciation</div>
+				<div class="category-btn">Conversation</div>
+				<div class="category-btn">Idioms</div>
 			</div>
 		</div>
+		
+		
 	</body>
+	
 </html>

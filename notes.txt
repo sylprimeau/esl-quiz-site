@@ -1,3 +1,13 @@
+**** FLOW ****
+
+- header: The header will be shown on all pages. Show login/signup (or logout) button, site title and maybe a hamburger menu for more options?
+
+- home screen: show an option for random quizzes (selected by category and level), and a list of quizzes. **considerations: when the db has a ton of quizzes, you can't show them all on the homepage so you'll have to show just a handful. Maybe you can show the 10 newest by category? Or 10 random? Or???
+
+- quiz-view: When user starts quiz, load quiz view
+
+
+
 
 ******* RATINGS *******
 

@@ -23,31 +23,28 @@
 
 <body>
 <!-- Comment out entire nav bar to disable login system temporarily -->
+<?php /*
 	<header>
 		<nav>
 			<ul>
-				<?php
-					if (isset($_SESSION['username'])) {
-						echo "<li>Welcome back ".$_SESSION['username']."!</li>";
-					}
-				?>
+				<?php if (isset($_SESSION['username'])): ?>
+					<li>Welcome back <?php echo $_SESSION['username']; ?>!</li>
+				<?php endif; ?>
 				<li><a href="index.php">Home</a></li>
-				<?php
-						if (isset($_SESSION['id'])) {
-							echo '<li><a href="profile.php">Your profile</a></li>';
-							echo '<form action="includes/logout.inc.php">
-								<button>Log out</button>
-							</form>';
-							echo '';
-						} else {
-							echo '<form action="includes/login.inc.php" method="post">
-							<input type="text" name="username" placeholder="Username">
-							<input type="password" name="password" placeholder="Password">
-							<button type="submit">Log in</button>
-							<li><a href="signup.php">Sign up</a></li>
-							</form>';
-						}
-				?>
+				<?php	if (isset($_SESSION['id'])): ?>
+					<li><a href="profile.php">Your profile</a></li>
+					<form action="includes/logout.inc.php">
+						<button>Log out</button>
+					</form>
+				<?php else: ?>
+					<form action="includes/login.inc.php" method="post">
+						<input type="text" name="username" placeholder="Username">
+						<input type="password" name="password" placeholder="Password">
+						<button type="submit">Log in</button>
+						<li><a href="signup.php">Sign up</a></li>
+					</form>
+				<?php endif; ?>
 			</ul>
 		</nav>
 	</header>
+*/ ?>
