@@ -70,28 +70,38 @@ nav {
 	transform: translate(-50%, -50%);
 }
 
+/* for some reason "padding: 0" centers the li elements */
+.filters-div ul {
+	padding: 0;
+}
+
+.filters-div li {
+	list-style: none;
+}
+
 .levels-div {
 	margin-bottom: 4em;
 }
 
+.filters-div h2 {
+	text-align: center;
+}
+
 .level-btn, .category-btn {
 	margin: 0 auto;
-	font-size: 2em;
+	font-size: 1.5em;
 	text-align: center;
+	background-color: #aaa;
+}
+
+.level-btn.selected, .category-btn.selected {
 	background-color: #ccc;
 }
 
 .level-btn:hover, .category-btn:hover {
-	background-color: #aaa;
+	background-color: #eee;
 }
 
-.level-btn.selected {
-	background-color: #fff
-}
-
-.category-btn.selected {
-	background-color: #fff
-}
 
 
 
