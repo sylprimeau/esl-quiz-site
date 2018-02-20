@@ -50,7 +50,7 @@ nav {
 	background-color: #444;
 	line-height: 1.5em;
 	height: 1.5em;
-	width: 10em;
+	width: 15em;
 	margin: 0.5em auto;
 	text-align: center;
 	color: #fff;
@@ -79,8 +79,8 @@ nav {
 	list-style: none;
 }
 
-.levels-div {
-	margin-bottom: 4em;
+.filters-div .group h2 {
+	margin: 0.3em 0;
 }
 
 .filters-div h2 {
@@ -101,6 +101,9 @@ nav {
 .level-btn:hover, .category-btn:hover {
 	background-color: #eee;
 }
+
+
+
 
 
 
