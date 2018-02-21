@@ -45,12 +45,17 @@ nav {
 	background-color: #59f;
 }
 
+.filters-bar {
+	background-color: #ddd;
+	padding: 0.5em;
+}
+
 .filters-btn {
 	background-color: #04f;
 	line-height: 1.5em;
 	height: 1.5em;
 	width: 15em;
-	margin: 0.5em auto;
+	margin: 0 auto;
 	text-align: center;
 	color: #fff;
 	cursor: pointer;
