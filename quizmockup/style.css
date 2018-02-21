@@ -134,11 +134,46 @@ nav {
 	background-color: #59f;
 }
 
+.select-quiz {
+	height: 6em;
+	margin: 0 auto;
+	border-bottom: 1px solid #37f;
+	position: relative;
+}
 
+.select-quiz .category, .select-quiz .level {
+	background-color: #ddd;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	padding: 0.2em;
+}
 
+.select-quiz .category {
+	left: 0;
+}
 
+.select-quiz .level {
+	right: 0;
+}
 
+.select-quiz .title {
+	text-align: center;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	color: #02d;
+}
 
+.select-quiz p {
+	padding: 0 1em;
+}
+
+footer {
+	height: 2em;
+	background-color: #59f;
+	color: #fff;
+	text-align: center;
+	line-height: 2em;
+}
 
 
 
