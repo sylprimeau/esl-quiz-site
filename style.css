@@ -15,6 +15,7 @@ body {
 	margin: 0 auto;
 }
 
+/* nav bar */
 nav {
 	height: 2em;
 	color: #fff;
@@ -65,7 +66,9 @@ nav a {
 .login-btn:hover {
 	background-color: #59f;
 }
+/* nav bar end */
 
+/* filters bar */
 .filters-bar {
 	background-color: #ddd;
 	padding: 0.5em;
@@ -85,7 +88,9 @@ nav a {
 .filters-btn:hover {
 	background-color: #59f;
 }
+/* filters bar end */
 
+/* filters div */
 .filters-div {
 	background-color: #fff;
 	width: 15em;
@@ -156,8 +161,10 @@ nav a {
 .level-btn:hover, .category-btn:hover {
 	background-color: #59f;
 }
+/* filters div end */
 
-.select-quiz {
+/* quiz preview */
+.quiz-preview {
 	background-color: #fff;
 	height: 8em;
 	margin: 0 auto;
@@ -165,31 +172,73 @@ nav a {
 	position: relative;
 }
 
-.select-quiz .category, .select-quiz .level {
-	background-color: #ddd;
+.quiz-preview .category, .quiz-preview .level {
 	display: inline-block;
 	position: absolute;
 	bottom: 0;
 	padding: 0.2em;
 }
 
-.select-quiz .category {
+.quiz-preview .category {
+	color: white;
 	left: 0;
 }
 
-.select-quiz .level {
+.quiz-preview .level {
 	right: 0;
 }
 
-.select-quiz .title {
+.quiz-preview .title {
 	text-align: center;
 	padding: 0.3em 0.5em 0.3em 0.5em;
 	color: #02d;
 }
 
-.select-quiz p {
+.quiz-preview p {
 	padding: 0 1em;
 }
+
+.grammar {
+	background-color: green;
+}
+
+.vocabulary {
+	background-color: red;
+}
+
+.pronunciation {
+	background-color: blue;
+}
+
+.idioms {
+	background-color: purple;
+}
+
+.conversation {
+	background-color: black;
+}
+
+.basic {
+	color: green;
+}
+
+.easy {
+	color: red;
+}
+
+.medium {
+	color: blue;
+}
+
+.hard {
+	color: purple;
+}
+
+.native {
+	color: black;
+}
+/* quiz preview end */
+
 
 footer {
 	height: 2em;
