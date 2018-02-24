@@ -1,12 +1,5 @@
 <?php
 
-//delete this anytime - replaced this block with an include and it seems to work fine
-//// connect to the database
-//$conn = mysqli_connect("localhost", "root", "", "quizzer");
-//if (!$conn) {
-//	die("Connection failed: ".mysqli_connect_error());
-//}
-
 include "dbh.php";
 
 // get form values that will only be used once

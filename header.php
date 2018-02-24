@@ -8,7 +8,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-		<link rel="stylesheet" href="style2.css" type="text/css">
+		<link rel="stylesheet" href="style.css" type="text/css">
 		<script src="script2.js"></script>
 		<title>This is the title</title>
 	</head>
