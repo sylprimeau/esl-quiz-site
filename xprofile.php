@@ -4,17 +4,9 @@
 
 <h1>Profile</h1><br>
 
-<?php if (isset($_SESSION['username'])): ?>
-	<form action="includes/logout.inc.php">
-		<button>Log out</button>
-	</form>
-<?php endif; ?>
-
-
-
 <?php
 	if (isset($_SESSION['id'])) {
-		echo "Hello ".$_SESSION['firstName']." ".$_SESSION['lastName']."!<br>";
+		echo "Hello ".$_SESSION['firstName']." ".$_SESSION['lastName']."!";
 		echo "You can only see this text if you're logged in.";
 	} else {
 		echo "You are not logged in.";

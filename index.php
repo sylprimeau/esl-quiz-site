@@ -2,68 +2,99 @@
 	include "header.php";
 ?>
 
-  	<div class="levelSelectScreen">
-			<div class="levelInstructions">Select the level you want to start at</div>
-			<div class="levels">
-				<div class="levelButton noselect">Level 1</div>
-				<div class="levelButton noselect">Level 2</div>
-				<div class="levelButton noselect">Level 3</div>
-				<div class="levelButton noselect">Level 4</div>
-				<div class="levelButton noselect">Level 5</div>
-			</div>
-			<hr>
-			<div class="categoryInstructions">Select the categories you want</div>
-			<div class="categories">
-				<div class="categoryButton noselect">Vocabulary</div>
-				<div class="categoryButton noselect">Grammar</div>
-				<div class="categoryButton noselect">Conversation</div>
-				<div class="categoryButton noselect">Pronunciation</div>
-				<div class="categoryButton noselect">Idioms</div>
-			</div>
-			<button type="button" class="startButton">Start!</button>
-  	</div>
-  	
-		<div id="problem">
-			<div class="categoryDiv">Quiz Category</div>
-			<div id="questionNumber"></div>
-			<div id="mediaContainer"></div>
-			<div class="questionDiv">
-				<p class="questionText">The question goes here</p>
-			</div>
-			<div class="answers">
-				<div class="answerButton noselect">
-					<p id="0" class="answerText"></p>
-				</div>
-				<div class="answerButton noselect">
-					<p id="1" class="answerText"></p>
-				</div>
-				<div class="answerButton noselect">
-					<p id="2" class="answerText"></p>
-				</div>
-				<div class="answerButton noselect">
-					<p id="3" class="answerText"></p>
+			<div class="filters-bar">
+				<div class="filters-btn">
+					<p>Filters: Vocabulary (Basic)</p>
 				</div>
 			</div>
-			<div id="avgScore"></div>
-			<div id="timesTaken"></div>
-			<div class="ratingStars">
-				<span class="starsTooltip">Click to rate!</span>
-				<div id="star1" class="ratingStar"></div>
-				<div id="star2" class="ratingStar"></div>
-				<div id="star3" class="ratingStar"></div>
-				<div id="star4" class="ratingStar"></div>
-				<div id="star5" class="ratingStar"></div>
-			</div>
-		</div>
-		<div class="quizReview hide"></div>
-	<script src="script.js"></script>
 
-</body>
+			<div class="filters-div hide">
+				<div class="x-close">
+					<div class="x-fwd-slash"></div>
+					<div class="x-bwd-slash"></div>
+				</div>
+				<div class="categories-div group">
+					<h2>Category</h2>
+					<ul>
+						<li class="category-btn">Vocabulary</li>
+						<li class="category-btn">Grammar</li>
+						<li class="category-btn">Pronunciation</li>
+						<li class="category-btn">Conversation</li>
+						<li class="category-btn">Idioms</li>
+					</ul>
+				</div>
 
+				<div class="levels-div group">
+					<h2>Level</h2>
+					<ul>
+						<li class="level-btn">Basic</li>
+						<li class="level-btn">Easy</li>
+						<li class="level-btn">Medium</li>
+						<li class="level-btn">Hard</li>
+						<li class="level-btn">Native</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="select-quiz">
+				<h3 class="title">Random Quiz</h3>
+				<p>Click here to get a random quiz!</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Vocabulary</h5>
+				<h5 class="level">Easy</h5>
+				<h3 class="title">Nationalities & Languages</h3>
+				<p>Can you match the language to the nationality?</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Grammar</h5>
+				<h5 class="level">Easy</h5>
+				<h3 class="title">"The" or "A"?</h3>
+				<p>Do you know which one native speakers would use?</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Vocabulary</h5>
+				<h5 class="level">Basic</h5>
+				<h3 class="title">Prepositions of location</h3>
+				<p>In front of, behind, above, below, beside, inside, outside, etc.</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Idioms</h5>
+				<h5 class="level">Hard</h5>
+				<h3 class="title">"Blue" Idioms</h3>
+				<p>Idioms that contain the word "blue".</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Conversation</h5>
+				<h5 class="level">Easy</h5>
+				<h3 class="title">Countables and Uncountables</h3>
+				<p>When to use which?</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Vocabulary</h5>
+				<h5 class="level">Native</h5>
+				<h3 class="title">Fancy Colors</h3>
+				<p>Do you know the names of these colors?</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Vocabulary</h5>
+				<h5 class="level">Easy</h5>
+				<h3 class="title">Holidays</h3>
+				<p>Everyone loves holidays! Yay!</p>
+			</div>
+			<div class="select-quiz">
+				<h5 class="category">Pronunciation</h5>
+				<h5 class="level">Medium</h5>
+				<h3 class="title">Similar Sounds</h3>
+				<p>Similar but not the same.</p>
+			</div>
+
+			<footer>
+				<p>Footer will go here</p>
+			</footer>
+		</div> <!-- wrapper -->
+	</body>
+	
 </html>
-
-
-
-
 
 

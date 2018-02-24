@@ -1,0 +1,238 @@
+* {
+	margin: 0;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.hide {
+	display: none;
+}
+
+.wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+nav {
+	height: 2em;
+	color: #fff;
+	background-color: #04f;
+	position: relative;
+}
+
+nav a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.hamburger-menu {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 3em;
+	cursor: pointer;
+}
+
+.hamburger-menu > .lines {
+	position: relative;
+	top: 20%;
+	height: 10%;
+	border-radius: 25%;
+	width: 40%;
+	margin: 0 auto;
+	margin-bottom: 10%;
+	background-color: #fff;
+}
+
+.site-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.login-btn {
+	position: absolute;
+	right: 0;
+	width: 8em;
+	text-align: center;
+	line-height: 2em;
+	cursor: pointer;
+}
+
+.login-btn:hover {
+	background-color: #59f;
+}
+
+.filters-bar {
+	background-color: #ddd;
+	padding: 0.5em;
+}
+
+.filters-btn {
+	background-color: #04f;
+	line-height: 1.5em;
+	height: 1.5em;
+	width: 15em;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+
+.filters-btn:hover {
+	background-color: #59f;
+}
+
+.filters-div {
+	background-color: #fff;
+	width: 15em;
+	border: 1px solid #444;
+	padding: 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+}
+
+.x-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 25px;
+	width: 25px;
+	cursor: pointer;
+}
+
+.x-close > .x-fwd-slash, .x-close > .x-bwd-slash {
+	width: 1px;
+	height: 80%;
+	background-color: #000;
+	position: absolute;
+	margin: auto;
+	left: 50%;
+	top: 50%;
+}
+
+.x-close > .x-fwd-slash {
+	transform: translate(-50%, -50%) rotate(40deg);
+}
+
+.x-close > .x-bwd-slash {
+	transform: translate(-50%, -50%) rotate(-40deg);
+}
+
+/* for some reason "padding: 0" centers the li elements */
+.filters-div ul {
+	padding: 0;
+}
+
+.filters-div li {
+	list-style: none;
+}
+
+.filters-div .group h2 {
+	margin: 0.3em 0;
+}
+
+.filters-div h2 {
+	text-align: center;
+}
+
+.level-btn, .category-btn {
+	margin: 0 auto;
+	font-size: 1.5em;
+	text-align: center;
+	background-color: #04f;
+}
+
+.level-btn.selected, .category-btn.selected {
+	background-color: #37f;
+}
+
+.level-btn:hover, .category-btn:hover {
+	background-color: #59f;
+}
+
+.select-quiz {
+	background-color: #fff;
+	height: 8em;
+	margin: 0 auto;
+	border-bottom: 1px solid #37f;
+	position: relative;
+}
+
+.select-quiz .category, .select-quiz .level {
+	background-color: #ddd;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	padding: 0.2em;
+}
+
+.select-quiz .category {
+	left: 0;
+}
+
+.select-quiz .level {
+	right: 0;
+}
+
+.select-quiz .title {
+	text-align: center;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	color: #02d;
+}
+
+.select-quiz p {
+	padding: 0 1em;
+}
+
+footer {
+	height: 2em;
+	background-color: #59f;
+	color: #fff;
+	text-align: center;
+	line-height: 2em;
+}
+
+
+
+
+.category-div {
+	background: #666;
+	color: white;
+	height: 5vh;
+	line-height: 5vh;
+	max-width: 60vw;
+	margin: 3vh auto;
+	text-align: center;
+	font-size: 4vh;
+}
+
+.question-div {
+	background: lightgrey;
+	height: 12vh;
+	width: 90vw;
+	margin: 3vh auto;
+}
+
+.answer-btn {
+	background: lightblue;
+	margin: 2vh auto;
+	height: 12vh;
+	width: 80vw;
+}
+
+.question-text, .answer-text {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 95%;
+	margin: auto;
+}
+

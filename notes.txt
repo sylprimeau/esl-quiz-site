@@ -29,6 +29,7 @@
 	Total time spent online
 	Avg time per quiz by level and total
 	Time spent on each individual quiz
+	Number of times each quiz has been taken
 	List of quizzes you have authored
 	Ratings for your authored quizzes
 	Ability to reset all your stats to zero
