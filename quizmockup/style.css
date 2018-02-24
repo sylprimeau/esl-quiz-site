@@ -2,6 +2,10 @@
 	margin: 0;
 }
 
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
 .hide {
 	display: none;
 }
@@ -143,7 +147,7 @@ nav {
 
 .select-quiz {
 	background-color: #fff;
-	height: 6em;
+	height: 8em;
 	margin: 0 auto;
 	border-bottom: 1px solid #37f;
 	position: relative;
