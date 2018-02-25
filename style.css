@@ -19,6 +19,8 @@ body {
 	margin: 0 auto;
 }
 
+
+
 /* nav bar */
 nav {
 	height: 2em;
@@ -72,6 +74,8 @@ nav a {
 }
 /* nav bar end */
 
+
+
 /* filters bar */
 .filters-bar {
 	background-color: #ddd;
@@ -93,6 +97,8 @@ nav a {
 	background-color: #59f;
 }
 /* filters bar end */
+
+
 
 /* filters div */
 .filters-div {
@@ -166,6 +172,8 @@ nav a {
 	background-color: #59f;
 }
 /* filters div end */
+
+
 
 /* quiz preview */
 .quiz-preview {
@@ -244,6 +252,7 @@ nav a {
 /* quiz preview end */
 
 
+
 footer {
 	height: 2em;
 	background-color: #59f;
@@ -253,6 +262,16 @@ footer {
 }
 
 
+
+/* login page */
+.login-page form {
+	width: 20em;
+	margin: 2em auto;
+}
+
+.login-page input {
+	display: block;
+}
 
 
 
