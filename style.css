@@ -192,7 +192,7 @@ nav a {
 }
 
 .quiz-preview .category {
-	color: white;
+	color: black;
 	left: 0;
 }
 
@@ -211,23 +211,23 @@ nav a {
 }
 
 .grammar {
-	background-color: green;
+	background-color: lightgreen;
 }
 
 .vocabulary {
-	background-color: red;
+	background-color: pink;
 }
 
 .pronunciation {
-	background-color: blue;
+	background-color: lightblue;
 }
 
 .idioms {
-	background-color: purple;
+	background-color: #faf;
 }
 
 .conversation {
-	background-color: black;
+	background-color: lightgrey;
 }
 
 .basic {
