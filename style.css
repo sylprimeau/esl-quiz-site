@@ -179,15 +179,15 @@ nav a {
 	margin: 0 auto;
 	font-size: 1.5em;
 	text-align: center;
-	background-color: #04f;
+	background-color: #27f;
 }
 
 .level-btn.selected, .category-btn.selected {
-	background-color: #37f;
+	box-shadow: inset 0px 0px 30px white;
 }
 
 .level-btn:hover, .category-btn:hover {
-	background-color: #59f;
+	background-color: #05d;
 }
 /* filters div end */
 

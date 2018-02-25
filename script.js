@@ -22,9 +22,8 @@ init();
 function init() {
 	console.log("init invoked");
 	setListeners();
-	// this should not be here. instead, highlighting buttons should be called when level and category are set in the program!
 	// pre-select "level 1" button
-//	document.querySelectorAll(".levelButton")[0].classList.add("selected");
+	document.querySelectorAll(".level-btn")[0].classList.add("selected");
 	// pre-select all categories
 //	var catBtn = document.querySelectorAll(".categoryButton");
 //	catBtn.forEach(function(elem) {
@@ -34,25 +33,24 @@ function init() {
 
 function setListeners() {
 	console.log("setListeners invoked");
-	
 	// click filters button to show filter options box
 	var filtersBtn = document.querySelector(".filters-btn");
 	filtersBtn.addEventListener("click", function(e) {
 		e.stopPropagation();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
-	
-	// click X in corner to close filters options box
+	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function(e) {
 		e.stopPropagation();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
-	
+	// click to select a category
 	var catButton = document.querySelectorAll(".category-btn");
 	for (var i = 0; i < catButton.length; i++) {
 		catBtnListeners(i, catButton)
 	}
+	// click to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
@@ -105,6 +103,7 @@ function levelBtnListeners(index, levelButton) {
 		if (problemIndex > 0) { // prevent changing levels mid-quiz
 			return;
 		} else {
+			console.log("level selected");
 			toggleLevelBtnColor(index, levelButton);
 			level = index + 1;
 			completed = 0;
@@ -270,11 +269,18 @@ function nextQuiz() {
 }
 
 function toggleLevelBtnColor(index, levelButton) {
+	console.log("toggle called");
 	if (index == level - 1) {
+	// user clicks on current level
+		console.log("return called");
 		return;
 	} else {
-		levelButton[level - 1].style.backgroundColor = "dodgerblue";
-		levelButton[index].style.backgroundColor = "deepskyblue";
+	// user clicks on different level than current
+		console.log("else called");
+//		levelButton[level - 1].style.backgroundColor = "dodgerblue";
+		levelButton[level - 1].classList.toggle("selected");
+//		levelButton[index].style.backgroundColor = "deepskyblue";
+		levelButton[index].classList.toggle("selected");
 	}
 }
 
