@@ -204,6 +204,10 @@ nav a {
 	position: relative;
 }
 
+.quiz-preview:hover {
+	background-color: #def;
+}
+
 .quiz-preview .category, .quiz-preview .level {
 	display: inline-block;
 	position: absolute;
