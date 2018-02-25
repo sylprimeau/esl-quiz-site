@@ -35,12 +35,14 @@ function init() {
 function setListeners() {
 	console.log("setListeners invoked");
 	
+	// click filters button to show filter options box
 	var filtersBtn = document.querySelector(".filters-btn");
 	filtersBtn.addEventListener("click", function(e) {
 		e.stopPropagation();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
 	
+	// click X in corner to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function(e) {
 		e.stopPropagation();

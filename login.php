@@ -1,7 +1,8 @@
 <?php
 	include "header.php";
 ?>
-			<!-- Just in case use cut/pastes login page into address bar -->
+		<div class="wrapper">
+			<!-- Just in case user cut/pastes login page into address bar -->
 			<div class="login-page">
 				<?php if (isset($_SESSION['id'])): ?>
 					<p>You are already logged in!</p>
