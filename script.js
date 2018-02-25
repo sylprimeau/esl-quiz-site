@@ -19,20 +19,10 @@ var categories = ["Vocabulary", "Grammar", "Conversation", "Pronunciation", "Idi
 
 init();
 
-// This totally works!!!!
-//var hammy = document.querySelectorAll(".hamburger-menu");
-//hammy[0].addEventListener("click", function() {
-//	alert("hi");
-//});
-//
-//var quizList = document.querySelector("#start-button");
-//quizList.addEventListener("click", function() {
-//	alert("hello");
-//});
-
 function init() {
 	console.log("init invoked");
 	setListeners();
+	// this should not be here. instead, highlighting buttons should be called when level and category are set in the program!
 	// pre-select "level 1" button
 //	document.querySelectorAll(".levelButton")[0].classList.add("selected");
 	// pre-select all categories
@@ -44,14 +34,27 @@ function init() {
 
 function setListeners() {
 	console.log("setListeners invoked");
-//	var levelButton = document.querySelectorAll(".levelButton");
-//	for (var i = 0; i < levelButton.length; i++) {
-//		levelBtnListeners(i, levelButton);
-//	}
-//	var catButton = document.querySelectorAll(".categoryButton");
-//	for (var i = 0; i < catButton.length; i++) {
-//		catBtnListeners(i, catButton)
-//	}
+	
+	var filtersBtn = document.querySelector(".filters-btn");
+	filtersBtn.addEventListener("click", function(e) {
+		e.stopPropagation();
+		document.querySelector(".filters-box").classList.toggle("hide");
+	});
+	
+	var filtersBoxX = document.querySelector(".filters-box .x-close");
+	filtersBoxX.addEventListener("click", function(e) {
+		e.stopPropagation();
+		document.querySelector(".filters-box").classList.toggle("hide");
+	});
+	
+	var catButton = document.querySelectorAll(".category-btn");
+	for (var i = 0; i < catButton.length; i++) {
+		catBtnListeners(i, catButton)
+	}
+	var levelButton = document.querySelectorAll(".level-btn");
+	for (var i = 0; i < levelButton.length; i++) {
+		levelBtnListeners(i, levelButton);
+	}
 	var answerButton = document.querySelectorAll(".answerButton");
 	for (var index = 0; index < answerButton.length; index++) {
 		AnsBtnListeners(index, answerButton);
@@ -70,18 +73,6 @@ function setListeners() {
 		document.querySelector("#problem").style.display = "block";
 		getQuiz();
 	})
-}
-
-function levelBtnListeners(index, levelButton) {
-	levelButton[index].addEventListener("click", function() {
-		if (problemIndex > 0) { // prevent changing levels mid-quiz
-			return;
-		} else {
-			toggleLevelBtnColor(index, levelButton);
-			level = index + 1;
-			completed = 0;
-		}
-	});
 }
 
 function catBtnListeners(index, catButton) {
@@ -103,6 +94,18 @@ function catBtnListeners(index, catButton) {
 				catButton[index].style.backgroundColor = "deepskyblue";
 				categories.push(catButton[index].innerHTML);
 			}
+		}
+	});
+}
+
+function levelBtnListeners(index, levelButton) {
+	levelButton[index].addEventListener("click", function() {
+		if (problemIndex > 0) { // prevent changing levels mid-quiz
+			return;
+		} else {
+			toggleLevelBtnColor(index, levelButton);
+			level = index + 1;
+			completed = 0;
 		}
 	});
 }

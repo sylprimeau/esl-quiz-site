@@ -107,7 +107,16 @@ nav a {
 /***********************************************/
 
 /* filters div */
-.filters-div {
+.filters-box {
+	background-color: transparent;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+
+.filters-box-inner {
 	background-color: #fff;
 	width: 15em;
 	border: 1px solid #444;
@@ -116,7 +125,6 @@ nav a {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 100;
 }
 
 .x-close {
@@ -147,19 +155,19 @@ nav a {
 }
 
 /* for some reason "padding: 0" centers the li elements */
-.filters-div ul {
+.filters-box ul {
 	padding: 0;
 }
 
-.filters-div li {
+.filters-box li {
 	list-style: none;
 }
 
-.filters-div .group h2 {
+.filters-box .group h2 {
 	margin: 0.3em 0;
 }
 
-.filters-div h2 {
+.filters-box h2 {
 	text-align: center;
 }
 

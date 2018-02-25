@@ -9,31 +9,33 @@
 				</div>
 			</div>
 
-			<div class="filters-div hide">
-				<div class="x-close">
-					<div class="x-fwd-slash"></div>
-					<div class="x-bwd-slash"></div>
-				</div>
-				<div class="categories-div group">
-					<h2>Category</h2>
-					<ul>
-						<li class="category-btn">Vocabulary</li>
-						<li class="category-btn">Grammar</li>
-						<li class="category-btn">Pronunciation</li>
-						<li class="category-btn">Conversation</li>
-						<li class="category-btn">Idioms</li>
-					</ul>
-				</div>
+			<div class="filters-box hide">
+				<div class="filters-box-inner">
+					<div class="x-close">
+						<div class="x-fwd-slash"></div>
+						<div class="x-bwd-slash"></div>
+					</div>
+					<div class="categories-div group">
+						<h2>Category</h2>
+						<ul>
+							<li class="category-btn">Vocabulary</li>
+							<li class="category-btn">Grammar</li>
+							<li class="category-btn">Pronunciation</li>
+							<li class="category-btn">Conversation</li>
+							<li class="category-btn">Idioms</li>
+						</ul>
+					</div>
 
-				<div class="levels-div group">
-					<h2>Level</h2>
-					<ul>
-						<li class="level-btn">Basic</li>
-						<li class="level-btn">Easy</li>
-						<li class="level-btn">Medium</li>
-						<li class="level-btn">Hard</li>
-						<li class="level-btn">Native</li>
-					</ul>
+					<div class="levels-div group">
+						<h2>Level</h2>
+						<ul>
+							<li class="level-btn">Basic</li>
+							<li class="level-btn">Easy</li>
+							<li class="level-btn">Medium</li>
+							<li class="level-btn">Hard</li>
+							<li class="level-btn">Native</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 
