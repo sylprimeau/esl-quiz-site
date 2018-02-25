@@ -19,26 +19,39 @@ var categories = ["Vocabulary", "Grammar", "Conversation", "Pronunciation", "Idi
 
 init();
 
+// This totally works!!!!
+//var hammy = document.querySelectorAll(".hamburger-menu");
+//hammy[0].addEventListener("click", function() {
+//	alert("hi");
+//});
+//
+//var quizList = document.querySelector("#start-button");
+//quizList.addEventListener("click", function() {
+//	alert("hello");
+//});
+
 function init() {
+	console.log("init invoked");
 	setListeners();
 	// pre-select "level 1" button
-	document.querySelectorAll(".levelButton")[0].classList.add("selected");
+//	document.querySelectorAll(".levelButton")[0].classList.add("selected");
 	// pre-select all categories
-	var catBtn = document.querySelectorAll(".categoryButton");
-	catBtn.forEach(function(elem) {
-		elem.classList.add("selected");
-	});
+//	var catBtn = document.querySelectorAll(".categoryButton");
+//	catBtn.forEach(function(elem) {
+//		elem.classList.add("selected");
+//	});
 }
 
 function setListeners() {
-	var levelButton = document.querySelectorAll(".levelButton");
-	for (var i = 0; i < levelButton.length; i++) {
-		levelBtnListeners(i, levelButton);
-	}
-	var catButton = document.querySelectorAll(".categoryButton");
-	for (var i = 0; i < catButton.length; i++) {
-		catBtnListeners(i, catButton)
-	}
+	console.log("setListeners invoked");
+//	var levelButton = document.querySelectorAll(".levelButton");
+//	for (var i = 0; i < levelButton.length; i++) {
+//		levelBtnListeners(i, levelButton);
+//	}
+//	var catButton = document.querySelectorAll(".categoryButton");
+//	for (var i = 0; i < catButton.length; i++) {
+//		catBtnListeners(i, catButton)
+//	}
 	var answerButton = document.querySelectorAll(".answerButton");
 	for (var index = 0; index < answerButton.length; index++) {
 		AnsBtnListeners(index, answerButton);
@@ -51,9 +64,9 @@ function setListeners() {
 	for (var i = 0; i < star.length; i++) {
 		setRating(i, star);
 	}
-	var startButton = document.querySelector(".startButton");
+	var startButton = document.querySelector(".start-button");
 	startButton.addEventListener("click", function() {
-		document.querySelector(".levelSelectScreen").classList.toggle("hide");
+		document.querySelector(".quiz-list").classList.toggle("hide");
 		document.querySelector("#problem").style.display = "block";
 		getQuiz();
 	})

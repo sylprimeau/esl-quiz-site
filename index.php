@@ -2,6 +2,7 @@
 	include "header.php";
 ?>
 
+		<div class="wrapper quiz-list">
 			<div class="filters-bar">
 				<div class="filters-btn">
 					<p>Filters: Vocabulary (Basic)</p>
@@ -36,7 +37,7 @@
 				</div>
 			</div>
 
-			<div class="quiz-preview">
+			<div class="quiz-preview start-button">
 				<h3 class="title">Random Quiz</h3>
 				<p>Click here to get a random quiz!</p>
 			</div>
@@ -92,7 +93,43 @@
 			<footer>
 				<p>Footer will go here</p>
 			</footer>
-		</div> <!-- wrapper -->
+		</div>
+		
+		<div id="problem">
+			<div class="categoryDiv">Quiz Category</div>
+			<div id="questionNumber"></div>
+			<div id="mediaContainer"></div>
+			<div class="questionDiv">
+				<p class="questionText">The question goes here</p>
+			</div>
+			<div class="answers">
+				<div class="answerButton noselect">
+					<p id="0" class="answerText"></p>
+				</div>
+				<div class="answerButton noselect">
+					<p id="1" class="answerText"></p>
+				</div>
+				<div class="answerButton noselect">
+					<p id="2" class="answerText"></p>
+				</div>
+				<div class="answerButton noselect">
+					<p id="3" class="answerText"></p>
+				</div>
+			</div>
+			<div id="avgScore"></div>
+			<div id="timesTaken"></div>
+			<div class="ratingStars">
+				<span class="starsTooltip">Click to rate!</span>
+				<div id="star1" class="ratingStar"></div>
+				<div id="star2" class="ratingStar"></div>
+				<div id="star3" class="ratingStar"></div>
+				<div id="star4" class="ratingStar"></div>
+				<div id="star5" class="ratingStar"></div>
+			</div>
+		</div>
+		<div class="quizReview hide"></div>
+		
+		<script src="script.js"></script>
 	</body>
 	
 </html>
