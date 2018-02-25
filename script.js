@@ -15,20 +15,20 @@ var quiz;
 var completed = 0;
 var completedQuizIds = [];
 var level = 1;
-var categories = ["Vocabulary", "Grammar", "Conversation", "Pronunciation", "Idioms"];
+var categories = ["Vocabulary"];
 
 init();
 
 function init() {
 	console.log("init invoked");
 	setListeners();
+	// refactor this so that level1 is selected programmatically onload
 	// pre-select "level 1" button
-	document.querySelectorAll(".level-btn")[0].classList.add("selected");
+	levelBtn = document.querySelectorAll(".level-btn");
+	levelBtn[0].classList.toggle("selected");
 	// pre-select all categories
-//	var catBtn = document.querySelectorAll(".categoryButton");
-//	catBtn.forEach(function(elem) {
-//		elem.classList.add("selected");
-//	});
+	var catBtn = document.querySelectorAll(".category-btn");
+	catBtn[0].classList.toggle("selected");
 }
 
 function setListeners() {
@@ -86,15 +86,16 @@ function catBtnListeners(index, catButton) {
 				if (categories.length < 2) {
 					return;
 				}
-				catButton[index].style.backgroundColor = "dodgerblue";
+				catButton[index].classList.toggle("selected");
 				var position = categories.indexOf(catButton[index].innerHTML);
 				categories.splice(position, 1);
-			// if cat doesn't exist, add it
 			} else {
-				catButton[index].style.backgroundColor = "deepskyblue";
+			// if cat doesn't exist, add it
+				catButton[index].classList.toggle("selected");
 				categories.push(catButton[index].innerHTML);
 			}
 		}
+		console.log("Categories are: " + categories);
 	});
 }
 
