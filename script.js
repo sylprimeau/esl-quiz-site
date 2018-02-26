@@ -36,13 +36,11 @@ function setListeners() {
 	// click filters button to show filter options box
 	var filtersBtn = document.querySelector(".filters-btn");
 	filtersBtn.addEventListener("click", function(e) {
-		e.stopPropagation();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
 	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function(e) {
-		e.stopPropagation();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
 	// click to select a category
@@ -54,6 +52,11 @@ function setListeners() {
 	var levelButton = document.querySelectorAll(".level-btn");
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
+	}
+	// click quiz preview to go directly to that quiz
+	var quizPreview = document.querySelectorAll(".quiz-preview");
+	for (var i = 0; i < quizPreview.length; i++) {
+		quizPreviewListeners(i, quizPreview);
 	}
 	var answerButton = document.querySelectorAll(".answerButton");
 	for (var index = 0; index < answerButton.length; index++) {
@@ -109,6 +112,15 @@ function levelBtnListeners(index, levelButton) {
 			level = index + 1;
 			completed = 0;
 		}
+	});
+}
+
+function quizPreviewListeners(index, quizPreview) {
+	quizPreview[index].addEventListener("click", function() {
+		console.log("Quiz ID is: " + quizPreview[index].dataset.quizid);
+		document.querySelector(".quiz-list").classList.toggle("hide");
+		document.querySelector("#problem").style.display = "block";
+		getSpecificQuiz(quizPreview[index].dataset.quizid);
 	});
 }
 
@@ -367,6 +379,44 @@ function updateQuizInfo(quizScore) {
 function getQuiz() {
 	xhr = new XMLHttpRequest();
 	xhr.open("GET", "getquiz.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&categories=" + categories, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			quiz = this.responseText;
+			problemIndex = 0;
+			var userAnswers = [];
+			if (!quiz) {
+				if (level === 5) {
+					alert("There are no more quizzes for your selected category. Try a lower level or other categories.");
+					clearScreen();
+					return;
+				} else {
+					alert("There are no more quizzes for your selected category in this level. Let's try the next level!");
+					nextLevel();
+				}
+			} else {
+				console.log("You have completed the following quizIds: " + completedQuizIds);
+				quiz = JSON.parse(quiz);
+				console.table(quiz);
+				if (quiz.randomPs === true) {
+					quiz.problems = shuffleArray(quiz.problems);
+				}
+				if (quiz.randomAs === true) {
+					for (var i = 0; i < quiz.problems.length; i++) {
+						quiz.problems[i].answers = shuffleArray(quiz.problems[i].answers, quiz.problems[i].correctAns, i);
+					}
+				}
+				displayProblem();
+			}
+		}
+	};
+}
+
+function getSpecificQuiz(id) {
+/* Clean this up so that you only receive the info you need for it to work without screwing up. You only need the quizId and not the others. */
+	console.log("getSpecificQuiz invoked for quizid: " + id);
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "getspecificquiz.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&quizId=" + id + "&categories=" + categories, true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

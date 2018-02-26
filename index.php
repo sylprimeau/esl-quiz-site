@@ -53,7 +53,7 @@
 				?>
 				
 				<?php while ($row = mysqli_fetch_array($result)): ?>
-					<div class="quiz-preview">
+					<div class="quiz-preview" data-quizid="<?php echo $row['quizId']; ?>">
 						<h3 class="title"><?php echo $row['title']; ?></h3>
 						<h5 class="category <?php echo strtolower($row['category']); ?>"><?php echo $row['category']; ?></h5>
 						<h5 class="level level<?php echo $row['level']; ?>">Level <?php echo $row['level']; ?></h5>
