@@ -416,7 +416,7 @@ function getSpecificQuiz(id) {
 /* Clean this up so that you only receive the info you need for it to work without screwing up. You only need the quizId and not the others. */
 	console.log("getSpecificQuiz invoked for quizid: " + id);
 	xhr = new XMLHttpRequest();
-	xhr.open("GET", "getspecificquiz.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&quizId=" + id + "&categories=" + categories, true);
+	xhr.open("GET", "getspecificquiz.php?quizId=" + id, true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -433,7 +433,6 @@ function getSpecificQuiz(id) {
 					nextLevel();
 				}
 			} else {
-				console.log("You have completed the following quizIds: " + completedQuizIds);
 				quiz = JSON.parse(quiz);
 				console.table(quiz);
 				if (quiz.randomPs === true) {

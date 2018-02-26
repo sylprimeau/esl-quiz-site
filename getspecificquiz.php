@@ -5,9 +5,6 @@ include "dbh.php";
 
 /* Clean this up so that you only receive the info you need for it to work without screwing up. You only need the quizId and not the others. */
 $quizId = intval($_GET['quizId']);
-$completedQuizIds = explode(",", $_GET['completedQuizIds']);
-$level = intval($_GET['level']);
-$categories = explode(",", $_GET['categories']); // creates array from string input
 
 /*
 Get info for each problem in quiz and push to $problems array until done. Then use the $problems array in quiz object
@@ -65,7 +62,6 @@ settype($row['timesTaken'], "int");
 settype($row['avgScore'], "float");
 
 $data = array(
-	"categoryArray" => $categories,
 	"quizId" => $row['quizId'], 
 	"creator" => $row['creator'], 
 	"language" => $row['language'], 
