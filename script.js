@@ -152,7 +152,7 @@ function showRating() {
 }
 
 function displayProblem() {
-	document.querySelector(".categoryDiv").innerHTML = quiz.category;
+	document.querySelector(".categoryDiv").innerHTML = quiz.category + " - Level " + quiz.level;
 	document.getElementById("questionNumber").innerHTML = "This is question " + (Number(problemIndex) + 1) + " of " + quiz.problems.length;
 	document.querySelector(".questionText").innerHTML = quiz.problems[problemIndex].question;
 	var answer = document.querySelectorAll(".answerText");
@@ -346,7 +346,7 @@ function shuffleArray(arr, corrAns, probNum) {
 }
 
 function nextLevel() {
-	toggleLevelBtnColor(level, document.getElementsByClassName("levelButton"));
+	toggleLevelBtnColor(level, document.querySelectorAll(".level-btn"));
 	level += 1;
 	completed = 0;
 	getQuiz();
