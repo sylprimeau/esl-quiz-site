@@ -29,68 +29,96 @@
 					<div class="levels-div group">
 						<h2>Level</h2>
 						<ul>
-							<li class="level-btn">Basic</li>
-							<li class="level-btn">Easy</li>
-							<li class="level-btn">Medium</li>
-							<li class="level-btn">Hard</li>
-							<li class="level-btn">Native</li>
+							<li class="level-btn">Level 1 (basic)</li>
+							<li class="level-btn">Level 2 (easy)</li>
+							<li class="level-btn">Level 3 (medium)</li>
+							<li class="level-btn">Level 4 (hard)</li>
+							<li class="level-btn">Level 5 (native)</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 
-			<div class="quiz-preview start-button">
-				<h3 class="title">Random Quiz</h3>
-				<p>Click here to get a random quiz!</p>
+
+			<div class="quiz-previews">
+				<div class="quiz-preview start-button">
+					<h3 class="title">Random Quiz</h3>
+					<p>Click here to get a random quiz!</p>
+				</div>
+				
+				<?php
+					include "dbh.php";
+					$sql = "SELECT * FROM quizzes";
+					$result = mysqli_query($conn,$sql);
+				?>
+				
+				<?php while ($row = mysqli_fetch_array($result)): ?>
+					<div class="quiz-preview">
+						<h3 class="title"><?php echo $row['title']; ?></h3>
+						<h5 class="category <?php echo strtolower($row['category']); ?>"><?php echo $row['category']; ?></h5>
+						<h5 class="level level<?php echo $row['level']; ?>">Level <?php echo $row['level']; ?></h5>
+						<p class="description"><?php echo $row['description']; ?></p>
+					</div>
+				<?php endwhile; ?>
+				
 			</div>
-			<div class="quiz-preview">
-				<h5 class="category vocabulary">Vocabulary</h5>
-				<h5 class="level easy">Easy</h5>
-				<h3 class="title">Nationalities & Languages</h3>
-				<p>Can you match the language to the nationality?</p>
+<!--
+			<div class="quiz-previews">
+				<div class="quiz-preview start-button">
+					<h3 class="title">Random Quiz</h3>
+					<p>Click here to get a random quiz!</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category vocabulary">Vocabulary</h5>
+					<h5 class="level easy">Easy</h5>
+					<h3 class="title">Nationalities & Languages</h3>
+					<p>Can you match the language to the nationality?</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category grammar">Grammar</h5>
+					<h5 class="level easy">Easy</h5>
+					<h3 class="title">"The" or "A"?</h3>
+					<p>Do you know which one native speakers would use?</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category vocabulary">Vocabulary</h5>
+					<h5 class="level basic">Basic</h5>
+					<h3 class="title">Prepositions of location</h3>
+					<p>In front of, behind, above, below, beside, inside, outside, etc.</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category idioms">Idioms</h5>
+					<h5 class="level hard">Hard</h5>
+					<h3 class="title">"Blue" Idioms</h3>
+					<p>Idioms that contain the word "blue".</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category conversation">Conversation</h5>
+					<h5 class="level easy">Easy</h5>
+					<h3 class="title">Countables and Uncountables</h3>
+					<p>When to use which?</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category vocabulary">Vocabulary</h5>
+					<h5 class="level native">Native</h5>
+					<h3 class="title">Fancy Colors</h3>
+					<p>Do you know the names of these colors?</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category vocabulary">Vocabulary</h5>
+					<h5 class="level easy">Easy</h5>
+					<h3 class="title">Holidays</h3>
+					<p>Everyone loves holidays! Yay!</p>
+				</div>
+				<div class="quiz-preview">
+					<h5 class="category pronunciation">Pronunciation</h5>
+					<h5 class="level medium">Medium</h5>
+					<h3 class="title">Similar Sounds</h3>
+					<p>Similar but not the same.</p>
+				</div>
 			</div>
-			<div class="quiz-preview">
-				<h5 class="category grammar">Grammar</h5>
-				<h5 class="level easy">Easy</h5>
-				<h3 class="title">"The" or "A"?</h3>
-				<p>Do you know which one native speakers would use?</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category vocabulary">Vocabulary</h5>
-				<h5 class="level basic">Basic</h5>
-				<h3 class="title">Prepositions of location</h3>
-				<p>In front of, behind, above, below, beside, inside, outside, etc.</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category idioms">Idioms</h5>
-				<h5 class="level hard">Hard</h5>
-				<h3 class="title">"Blue" Idioms</h3>
-				<p>Idioms that contain the word "blue".</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category conversation">Conversation</h5>
-				<h5 class="level easy">Easy</h5>
-				<h3 class="title">Countables and Uncountables</h3>
-				<p>When to use which?</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category vocabulary">Vocabulary</h5>
-				<h5 class="level native">Native</h5>
-				<h3 class="title">Fancy Colors</h3>
-				<p>Do you know the names of these colors?</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category vocabulary">Vocabulary</h5>
-				<h5 class="level easy">Easy</h5>
-				<h3 class="title">Holidays</h3>
-				<p>Everyone loves holidays! Yay!</p>
-			</div>
-			<div class="quiz-preview">
-				<h5 class="category pronunciation">Pronunciation</h5>
-				<h5 class="level medium">Medium</h5>
-				<h3 class="title">Similar Sounds</h3>
-				<p>Similar but not the same.</p>
-			</div>
+-->
+
 
 			<footer>
 				<p>Footer will go here</p>

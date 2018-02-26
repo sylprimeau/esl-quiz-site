@@ -58,6 +58,29 @@ Level 5 - A native speaker would find it difficult to get 100%
 
 
 
+----------------------------------------------------------
+
+dbh.php file contents in case you need it:
+
+<?php
+
+// connect to live site databse
+//$conn = mysqli_connect('hostname', 'username', 'password', 'databasename');
+
+// connect to localhost database for development
+$conn = mysqli_connect('localhost', 'root', '', 'quizzer');
+
+
+// only use mysqli_connect_error() for testing!
+if (!$conn) {
+	die("Connection failed: ".mysqli_connect_error());
+}
+
+----------------------------------------------------------
+
+
+
+
 
 
 

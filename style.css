@@ -183,7 +183,7 @@ nav a {
 }
 
 .level-btn.selected, .category-btn.selected {
-	box-shadow: inset 0px 0px 30px white;
+	box-shadow: inset 0px 0px 20px #ddf;
 }
 
 .level-btn:hover, .category-btn:hover {
@@ -254,23 +254,23 @@ nav a {
 	background-color: lightgrey;
 }
 
-.basic {
+.level1 {
 	color: green;
 }
 
-.easy {
+.level2 {
 	color: red;
 }
 
-.medium {
+.level3 {
 	color: blue;
 }
 
-.hard {
+.level4 {
 	color: purple;
 }
 
-.native {
+.level5 {
 	color: black;
 }
 /* quiz preview end */
