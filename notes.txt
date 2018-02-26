@@ -91,7 +91,7 @@ var quizzes = [{
 	language: "English",
 	level: 1,
 	category: "geography",
-	topic: "",
+	topic: "",                  **** changed this to title
 	randomProblems: true,
 	randomAnswers: true,
 	problems: [{

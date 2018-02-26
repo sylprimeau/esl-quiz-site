@@ -23,8 +23,8 @@
 						<option value="Idioms">Idioms</option>
 						<option value="Spelling">Spelling</option>
 					</select><br>
-					<label for="topic">Topic:</label>
-					<input type="text" name="topic" id="topic" required><br><br>
+					<label for="title">Title:</label>
+					<input type="text" name="title" id="title" required><br><br>
 					<label for="timed">Timed:</label>
 					<input type="checkbox" name="timed" id="timed" value="1"><br>
 					<label for="timeLimit">Time limit (0 = not timed):</label>

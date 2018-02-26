@@ -9,8 +9,8 @@ $level = $_POST['level'];
 $level = mysqli_real_escape_string($conn, $level);
 $category = $_POST['category'];
 $category = mysqli_real_escape_string($conn, $category);
-$topic = $_POST['topic'];
-$topic = mysqli_real_escape_string($conn, $topic);
+$title = $_POST['title'];
+$title = mysqli_real_escape_string($conn, $title);
 $timed = (isset($_POST['timed']) ? $_POST['timed'] : 0);
 $timed = mysqli_real_escape_string($conn, $timed);
 $timeLimit = (isset($_POST['timeLimit']) ? $_POST['timeLimit'] : 0);
@@ -50,7 +50,7 @@ while ($row = mysqli_fetch_array($result)) {
 	$quizId = ($row['maxId'] + 1).'<br>';
 }
 
-$sql2 = "INSERT INTO quizzes (creator, level, category, topic, randomPs, randomAs) VALUES ('$creator', '$level', '$category', '$topic', '$randomPs', '$randomAs')";
+$sql2 = "INSERT INTO quizzes (creator, level, category, title, randomPs, randomAs) VALUES ('$creator', '$level', '$category', '$title', '$randomPs', '$randomAs')";
 $result2 = mysqli_query($conn, $sql2);
 
 if (mysqli_query($conn, $sql)) {

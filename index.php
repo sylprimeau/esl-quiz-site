@@ -46,7 +46,6 @@
 					<p>Click here to get a random quiz!</p>
 				</div>
 				
-				<?php /*
 				<?php
 					include "dbh.php";
 					$sql = "SELECT * FROM quizzes";
@@ -58,10 +57,9 @@
 						<h3 class="title"><?php echo $row['title']; ?></h3>
 						<h5 class="category <?php echo strtolower($row['category']); ?>"><?php echo $row['category']; ?></h5>
 						<h5 class="level level<?php echo $row['level']; ?>">Level <?php echo $row['level']; ?></h5>
-						<p class="description"><?php echo $row['description']; ?></p>
+						<p class="description">Description here</p>
 					</div>
 				<?php endwhile; ?>
-				*/ ?>
 				
 			</div>
 <!--
