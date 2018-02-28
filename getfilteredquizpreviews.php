@@ -4,11 +4,12 @@ include "dbh.php";
 
 $completedQuizIds = explode(",", $_GET['completedQuizIds']);
 $level = intval($_GET['level']);
-$categories = explode(",", $_GET['categories']); // creates array from string input
+$categories = $_GET['categories'];
 
 /* IMPORTANT! 'categories' is read as a string eg: "Vocabulary, Grammar" but for your query, you'll need to format it like: "'Vocabulary', 'Grammar'". Those single quotes are necessary! These are the steps I found that work (easier than str_replace):
 - after exploding to make an array, add single quotes to each value and then implode it back into a string.
 */
+$categories = explode(",", $categories); // creates array from string input
 foreach($categories as $key => $val) {
 	$categories[$key] = "'".$val."'";
 }

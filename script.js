@@ -9,14 +9,14 @@ Three ways to handle the AJAX problem (so far)
 
 var quizScore = 0;
 var quizNum = 1;
-var problemIndex = 0;
+var problemIndex = -1;
 var userAnswers = [];
 var quiz;
 var quizPreviews;
 var completed = 0;
 var completedQuizIds = [];
 var level = 1;
-var categories = ["Vocabulary"];
+var categories = ["Vocabulary","Grammar","Conversation"];
 
 init();
 
@@ -26,13 +26,25 @@ function init() {
 	// refactor this so that level1 is selected programmatically onload
 	// select "level 1" button
 	var levelBtn = document.querySelectorAll(".level-btn");
-	levelBtn[0].classList.toggle("selected");
+	levelBtn[level-1].classList.toggle("selected");
 	// select Vocab category
 	var catBtn = document.querySelectorAll(".category-btn");
-	catBtn[0].classList.toggle("selected");
+	for (var i = 0; i < catBtn.length; i++) {
+		var text = catBtn[i].innerHTML;
+		console.log("InnerHTML of current button: " + text);
+		if (categories.includes(text)) {
+			catBtn[i].classList.toggle("selected");
+		}
+	}
 }
 
 function setListeners() {
+	var navBar = document.querySelector("nav");
+	navBar.addEventListener("click", function(e) {
+		if (problemIndex >= 0) {
+			confirmAbandon(e);
+		}
+	});
 	// click filters button to show filter options box
 	var filtersBtn = document.querySelector(".filters-btn");
 	filtersBtn.addEventListener("click", function() {
@@ -69,6 +81,16 @@ function setListeners() {
 		setRating(i, star);
 	}
 }
+
+
+// confirm abandoning mid-quiz (click on nav, etc)
+function confirmAbandon(e) {
+	var confirmAbandon = confirm("You are not finished this quiz yet. Are you sure you want to abandon it?");
+	if (!confirmAbandon) {
+		e.preventDefault();
+	}
+}
+
 
 // add or remove categories to array by clicking category buttons in filters
 function catBtnListeners(index, catButton) {
