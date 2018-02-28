@@ -16,7 +16,7 @@ var quizPreviews;
 var completed = 0;
 var completedQuizIds = [];
 var level = 1;
-var categories = ["Vocabulary","Grammar","Conversation"];
+var categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
 
 init();
 

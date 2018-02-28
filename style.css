@@ -163,14 +163,17 @@ nav a {
 	font-size: 1.5em;
 	text-align: center;
 	background-color: #27f;
+	user-select: none;
 }
 
 .level-btn.selected, .category-btn.selected {
-	box-shadow: inset 0px 0px 20px #ddf;
+	box-shadow: inset 0px 0px 5px 3px #97c0ff;
+	background-color: #5393f4;
 }
 
 .level-btn:hover, .category-btn:hover {
-	background-color: #05d;
+	background-color: #1c61d0;
+	cursor: pointer;
 }
 /* filters div end */
 
