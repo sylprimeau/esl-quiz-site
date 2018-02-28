@@ -1,0 +1,29 @@
+				<?php
+					include "dbh.php";
+					if (isset($level)) {
+						if (isset($categories)) {
+							$level = intval($_GET['level']);
+							$categories = explode(",", $_GET['categories']);
+							foreach($categories as $key => $val) {
+								$categories[$key] = "'".$val."'";
+							}
+							$categories = implode(",", $categories);
+						} else {
+							$categories = "Vocabulary";
+						}
+					} else {
+						$level = 1;
+						$categories = "Vocabulary";
+					}
+					$sql = "SELECT * FROM quizzes WHERE level=".$level." AND category IN ($categories)";
+					$result = mysqli_query($conn,$sql);
+				?>
+				
+				<?php while ($row = mysqli_fetch_array($result)): ?>
+					<div class="quiz-preview" data-quizid="<?php echo $row['quizId']; ?>">
+						<h3 class="title"><?php echo $row['title']; ?></h3>
+						<h5 class="category <?php echo strtolower($row['category']); ?>"><?php echo $row['category']; ?></h5>
+						<h5 class="level level<?php echo $row['level']; ?>">Level <?php echo $row['level']; ?></h5>
+						<p class="description">Description here</p>
+					</div>
+				<?php endwhile; ?>

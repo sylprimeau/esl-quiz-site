@@ -12,6 +12,7 @@ var quizNum = 1;
 var problemIndex = 0;
 var userAnswers = [];
 var quiz;
+var quizPreviews;
 var completed = 0;
 var completedQuizIds = [];
 var level = 1;
@@ -20,48 +21,45 @@ var categories = ["Vocabulary"];
 init();
 
 function init() {
-	console.log("init invoked");
+	getFilteredQuizPreviews();
 	setListeners();
 	// refactor this so that level1 is selected programmatically onload
-	// pre-select "level 1" button
-	levelBtn = document.querySelectorAll(".level-btn");
+	// select "level 1" button
+	var levelBtn = document.querySelectorAll(".level-btn");
 	levelBtn[0].classList.toggle("selected");
-	// pre-select all categories
+	// select Vocab category
 	var catBtn = document.querySelectorAll(".category-btn");
 	catBtn[0].classList.toggle("selected");
 }
 
 function setListeners() {
-	console.log("setListeners invoked");
 	// click filters button to show filter options box
 	var filtersBtn = document.querySelector(".filters-btn");
-	filtersBtn.addEventListener("click", function(e) {
+	filtersBtn.addEventListener("click", function() {
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
-	// click X to close filters options box
-	var filtersBoxX = document.querySelector(".filters-box .x-close");
-	filtersBoxX.addEventListener("click", function(e) {
-		document.querySelector(".filters-box").classList.toggle("hide");
-	});
-	// click to select a category
+	// click a category button in filters to select a category *** why aren't you using foreach here? should be!
 	var catButton = document.querySelectorAll(".category-btn");
 	for (var i = 0; i < catButton.length; i++) {
 		catBtnListeners(i, catButton)
 	}
-	// click to select a level
+	// click a level button in filters to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
 	}
-	// click quiz preview to go directly to that quiz
-	var quizPreview = document.querySelectorAll(".quiz-preview");
-	for (var i = 0; i < quizPreview.length; i++) {
-		quizPreviewListeners(i, quizPreview);
-	}
+	// click X to close filters options box
+	var filtersBoxX = document.querySelector(".filters-box .x-close");
+	filtersBoxX.addEventListener("click", function() {
+		getFilteredQuizPreviews();
+		document.querySelector(".filters-box").classList.toggle("hide");
+	});
+	// click an answer button in response to quiz question
 	var answerButton = document.querySelectorAll(".answerButton");
 	for (var index = 0; index < answerButton.length; index++) {
 		AnsBtnListeners(index, answerButton);
 	}
+	// click on the quiz review div to hide it
 	var quizReviewDiv = document.querySelector(".quizReview");
 	quizReviewDiv.addEventListener("click", function() {
 		quizReviewDiv.classList.toggle("hide");
@@ -70,14 +68,9 @@ function setListeners() {
 	for (var i = 0; i < star.length; i++) {
 		setRating(i, star);
 	}
-	var startButton = document.querySelector(".start-button");
-	startButton.addEventListener("click", function() {
-		document.querySelector(".quiz-list").classList.toggle("hide");
-		document.querySelector("#problem").style.display = "block";
-		getQuiz();
-	})
 }
 
+// add or remove categories to array by clicking category buttons in filters
 function catBtnListeners(index, catButton) {
 	catButton[index].addEventListener("click", function() {
 		if (problemIndex > 0) { // prevent changing categories mid-quiz
@@ -102,15 +95,108 @@ function catBtnListeners(index, catButton) {
 	});
 }
 
+// fetch and load homepage with quiz previews restricted by filter settings 
+function getFilteredQuizPreviews() {
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "getfilteredquizpreviews.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&categories=" + categories, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			quizPreviews = this.responseText;
+			if (!quizPreviews) {
+				alert("No quiz previews to retrieve!");
+			} else {
+				quizPreviews = JSON.parse(quizPreviews);
+				console.table(quizPreviews);
+				// build out quiz previews on homepage
+				// build "quiz-random-start" div first
+				var quizPreviewsDiv = document.querySelector("#quiz-previews");
+				quizPreviewsDiv.innerHTML = "";
+				var node = document.createElement("div");
+				var att = document.createAttribute("class");
+				att.value = "quiz-preview quiz-random-start";
+				node.setAttributeNode(att);
+				var node2 = document.createElement("h3");
+				var att2 = document.createAttribute("class");
+				att2.value = "title";
+				node2.setAttributeNode(att2);
+				var textnode2 = document.createTextNode("Random Quiz");
+				node2.appendChild(textnode2);
+				var node3 = document.createElement("p");
+				var att3 = document.createAttribute("class");
+				att3.value = "description";
+				node3.setAttributeNode(att3);
+				var textnode3 = document.createTextNode("Click here to get a random quiz!");
+				node3.appendChild(textnode3);
+				node.appendChild(node2);
+				node.appendChild(node3);
+				quizPreviewsDiv.appendChild(node);
+				// loop to build all quiz previews restricted by filters
+				for (var i = 0; i < quizPreviews.length; i++) {
+					var node = document.createElement("div");
+					var att = document.createAttribute("class");
+					att.value = "quiz-preview quiz-specific-start";
+					node.setAttributeNode(att);
+					var atta = document.createAttribute("data-quizid");
+					atta.value = quizPreviews[i].quizId;
+					node.setAttributeNode(atta);
+					var node2 = document.createElement("h3");
+					var att2a = document.createAttribute("class");
+					att2a.value = "title";
+					node2.setAttributeNode(att2a);
+					var textnode2 = document.createTextNode(quizPreviews[i].title);
+					node2.appendChild(textnode2);
+					var node3 = document.createElement("p");
+					var att3 = document.createAttribute("class");
+					att3.value = "description";
+					node3.setAttributeNode(att3);
+					var textnode3 = document.createTextNode(quizPreviews[i].description);
+					node3.appendChild(textnode3);
+					var node4 = document.createElement("h5");
+					var att4 = document.createAttribute("class");
+					att4.value = "category " + quizPreviews[i].category;
+					node4.setAttributeNode(att4);
+					var textnode4 = document.createTextNode(quizPreviews[i].category);
+					node4.appendChild(textnode4);
+					var node5 = document.createElement("h5");
+					var att5 = document.createAttribute("class");
+					att5.value = "level level" + quizPreviews[i].level;
+					node5.setAttributeNode(att5);
+					var textnode5 = document.createTextNode("Level " + quizPreviews[i].level);
+					node5.appendChild(textnode5);
+					node.appendChild(node2);
+					node.appendChild(node3);
+					node.appendChild(node4);
+					node.appendChild(node5);
+					quizPreviewsDiv.appendChild(node);
+				}
+				// need to set listeners in callback cuz otherwise elements are created AFTER listeners are set
+				// click quiz preview to go directly to that quiz
+				var quizPreview = document.querySelectorAll(".quiz-specific-start");
+				for (var i = 0; i < quizPreview.length; i++) {
+					quizPreviewListeners(i, quizPreview);
+				}
+				// click on "random quiz" box to load random quiz
+				var startButton = document.querySelector(".quiz-random-start");
+				startButton.addEventListener("click", function() {
+					document.querySelector(".quiz-list").classList.toggle("hide");
+					document.querySelector("#problem").style.display = "block";
+					getQuiz();
+				});
+			}
+		}
+	};
+}
+
 function levelBtnListeners(index, levelButton) {
 	levelButton[index].addEventListener("click", function() {
 		if (problemIndex > 0) { // prevent changing levels mid-quiz
 			return;
 		} else {
-			console.log("level selected");
 			toggleLevelBtnColor(index, levelButton);
 			level = index + 1;
 			completed = 0;
+			console.log("level selected " + level);
 		}
 	});
 }

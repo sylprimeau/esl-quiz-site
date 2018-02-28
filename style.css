@@ -133,29 +133,12 @@ nav a {
 
 .x-close {
 	position: absolute;
-	top: 0;
-	right: 0;
-	height: 25px;
-	width: 25px;
+	top: 0.2em;
+	right: 0.2em;
 	cursor: pointer;
-}
-
-.x-close > .x-fwd-slash, .x-close > .x-bwd-slash {
-	width: 1px;
-	height: 80%;
-	background-color: #000;
-	position: absolute;
-	margin: auto;
-	left: 50%;
-	top: 50%;
-}
-
-.x-close > .x-fwd-slash {
-	transform: translate(-50%, -50%) rotate(40deg);
-}
-
-.x-close > .x-bwd-slash {
-	transform: translate(-50%, -50%) rotate(-40deg);
+	font-size: 1.3em;
+	border: none;
+	background-color: transparent;
 }
 
 /* for some reason "padding: 0" centers the li elements */
@@ -234,23 +217,23 @@ nav a {
 	padding: 0 1em;
 }
 
-.grammar {
+.Grammar {
 	background-color: lightgreen;
 }
 
-.vocabulary {
+.Vocabulary {
 	background-color: pink;
 }
 
-.pronunciation {
+.Pronunciation {
 	background-color: lightblue;
 }
 
-.idioms {
+.Idioms {
 	background-color: #faf;
 }
 
-.conversation {
+.Conversation {
 	background-color: lightgrey;
 }
 
