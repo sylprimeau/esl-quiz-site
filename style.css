@@ -6,12 +6,13 @@
 	display: none;
 }
 
-body {
-	font-family: 'Raleway', sans-serif;
-}
-
 .hide {
 	display: none;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.2em;
 }
 
 header, .wrapper {
@@ -85,19 +86,22 @@ nav a {
 
 /* filters bar */
 .filters-bar {
-	background-color: #ddd;
-	padding: 0.5em;
+	background-color: #d5e0ff;
+	height: 3em;
+	position: relative;
 }
 
 .filters-btn {
+	position: absolute;
 	background-color: #04f;
-	line-height: 1.5em;
-	height: 1.5em;
 	width: 15em;
-	margin: 0 auto;
+	padding: 0.4em;
 	text-align: center;
 	color: #fff;
 	cursor: pointer;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .filters-btn:hover {
@@ -184,14 +188,22 @@ nav a {
 /* quiz preview */
 .quiz-preview {
 	background-color: #fff;
-	height: 8em;
+	height: 9em;
 	margin: 0 auto;
-	border-bottom: 1px solid #37f;
+	border-top: 1px solid #37f;
 	position: relative;
 }
 
 .quiz-preview:hover {
-	background-color: #def;
+	background-color: rgb(224, 224, 224);
+}
+
+.quiz-preview h3 {
+	font-size: 1.5em;
+}
+
+.quiz-preview p {
+	margin: 0 4em;
 }
 
 .quiz-preview .category, .quiz-preview .level {
@@ -213,11 +225,19 @@ nav a {
 .quiz-preview .title {
 	text-align: center;
 	padding: 0.3em 0.5em 0.3em 0.5em;
-	color: #8e2c6c;
+	color: #8e1363;
 }
 
 .quiz-preview p {
 	padding: 0 1em;
+}
+
+.quiz-random-start {
+	background-color: rgba(35, 181, 63, 0.2);
+}
+
+.quiz-random-start .title {
+	color: #2b2b9f;
 }
 
 .Grammar {
@@ -292,6 +312,14 @@ footer {
 /***********************************************/
 /***********************************************/
 /***********************************************/
+
+.profile-page p {
+	margin: 1em;
+}
+
+
+
+
 
 
 
@@ -410,14 +438,15 @@ footer {
   user-select: none;
 }
 
+
+
 table, th, td {
 	border: 1px solid black;
 	text-align: center;
-	margin: 20px;
 }
 
 table {
-	width: 700px;
+	width: 500px;
 	border-collapse: collapse;
 	border: 3px solid black;
 }
@@ -431,9 +460,17 @@ tbody {
 	background-color: lightblue;
 }
 
+
+
+
+
+
 #timesTaken {
 	float: left;
 }
+
+
+
 
 /*
 Hide rating function for now until you build out the user system so that you can prevent the same user from voting multiple times

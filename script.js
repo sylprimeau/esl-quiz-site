@@ -148,7 +148,7 @@ function getFilteredQuizPreviews() {
 				var att3 = document.createAttribute("class");
 				att3.value = "description";
 				node3.setAttributeNode(att3);
-				var textnode3 = document.createTextNode("Click here to get a random quiz!");
+				var textnode3 = document.createTextNode("Click here to do a random quiz or select one from the list below. Use the filters to restrict quiz selection by level and categories!");
 				node3.appendChild(textnode3);
 				node.appendChild(node2);
 				node.appendChild(node3);

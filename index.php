@@ -64,6 +64,7 @@
 					<p id="3" class="answerText"></p>
 				</div>
 			</div>
+<!--
 			<div id="avgScore"></div>
 			<div id="timesTaken"></div>
 			<div class="ratingStars">
@@ -74,6 +75,7 @@
 				<div id="star4" class="ratingStar"></div>
 				<div id="star5" class="ratingStar"></div>
 			</div>
+-->
 		</div>
 		<div class="quizReview hide"></div>
 		
