@@ -279,13 +279,13 @@ function displayProblem() {
 	answer.forEach(function(elem, index) {
 		elem.innerHTML = quiz.problems[problemIndex].answers[index];
 	});
-	if (quiz.timesTaken === 1) {
-		document.querySelector("#timesTaken").innerHTML = quiz.timesTaken + " person has taken this quiz so far!";
-	} else {
-		document.querySelector("#timesTaken").innerHTML = quiz.timesTaken + " people have taken this quiz so far!";
-	}
-	document.querySelector("#avgScore").innerHTML = "The average score for this quiz is " + quiz.avgScore + "/" + quiz.problems.length;
-	showRating();
+//	if (quiz.timesTaken === 1) {
+//		document.querySelector("#timesTaken").innerHTML = quiz.timesTaken + " person has taken this quiz so far!";
+//	} else {
+//		document.querySelector("#timesTaken").innerHTML = quiz.timesTaken + " people have taken this quiz so far!";
+//	}
+//	document.querySelector("#avgScore").innerHTML = "The average score for this quiz is " + quiz.avgScore + "/" + quiz.problems.length;
+//	showRating();
 	var mediaContainer = document.getElementById("mediaContainer");
 	if (quiz.problems[problemIndex].picUrl) {
 		mediaContainer.innerHTML = "<img src='" + quiz.problems[problemIndex].picUrl + "' height='100px'>";
