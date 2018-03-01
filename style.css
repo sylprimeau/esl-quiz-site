@@ -202,10 +202,6 @@ nav a {
 	font-size: 1.5em;
 }
 
-.quiz-preview p {
-	margin: 0 4em;
-}
-
 .quiz-preview .category, .quiz-preview .level {
 	display: inline-block;
 	position: absolute;

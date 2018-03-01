@@ -5,7 +5,7 @@
 		<div class="wrapper quiz-list">
 			<div class="filters-bar">
 				<div class="filters-btn">
-					<p>Filters: Vocabulary (Basic)</p>
+					<p>Category/Level Filters</p>
 				</div>
 			</div>
 
