@@ -21,6 +21,11 @@ var categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"
 init();
 
 function init() {
+	if (localStorage.getItem("level")) {
+		level = localStorage.getItem("level");
+		categories = localStorage.getItem("categories");
+		categories = categories.split(",");
+	}
 	getFilteredQuizPreviews();
 	setListeners();
 	// refactor this so that level1 is selected programmatically onload
@@ -63,6 +68,8 @@ function setListeners() {
 	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function() {
+		localStorage.setItem("level", level);
+		localStorage.setItem("categories", categories.join());
 		getFilteredQuizPreviews();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
