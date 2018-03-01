@@ -82,6 +82,7 @@ function setListeners() {
 	var quizReviewDiv = document.querySelector(".quizReview");
 	quizReviewDiv.addEventListener("click", function() {
 		quizReviewDiv.classList.toggle("hide");
+		location.reload();
 	});
 	var star = document.querySelectorAll(".ratingStar");
 	for (var i = 0; i < star.length; i++) {
@@ -245,7 +246,6 @@ function AnsBtnListeners(index, answerButton) {
 		recordAnswer(index);
 		if (problemIndex === quiz.problems.length - 1) {
 			calcScore();
-			nextQuiz();
 		} else {
 			nextQuestion();
 		}
@@ -327,6 +327,7 @@ function reviewQuiz(quizScore, total) {
 		text += "Oh no! Maybe try one level lower? Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
 	}
 	document.querySelector(".quizReview").classList.toggle("hide");
+	document.querySelector("#problem").style.display = "none";
 	document.querySelector("#scoreDiv").innerHTML = text;
 
 	for (var i = 0; i < quiz.problems.length; i++) {
