@@ -36,7 +36,6 @@ function init() {
 	var catBtn = document.querySelectorAll(".category-btn");
 	for (var i = 0; i < catBtn.length; i++) {
 		var text = catBtn[i].innerHTML;
-		console.log("InnerHTML of current button: " + text);
 		if (categories.includes(text)) {
 			catBtn[i].classList.toggle("selected");
 		}
