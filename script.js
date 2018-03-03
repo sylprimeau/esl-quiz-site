@@ -491,6 +491,18 @@ function updateQuizInfo(quizScore) {
 	}
 }
 
+function savequiztaken() {
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "savequiztaken.php?quizId=" + quiz.quizId, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = this.responseText;
+			console.log(response);
+		}
+	}
+}
+
 function getQuiz() {
 	xhr = new XMLHttpRequest();
 	xhr.open("GET", "getquiz.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&categories=" + categories, true);
@@ -550,6 +562,7 @@ function getSpecificQuiz(id) {
 			} else {
 				quiz = JSON.parse(quiz);
 				console.table(quiz);
+				savequiztaken();
 				if (quiz.randomPs === true) {
 					quiz.problems = shuffleArray(quiz.problems);
 				}
