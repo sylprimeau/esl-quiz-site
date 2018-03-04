@@ -1,6 +1,4 @@
-<?php
-	include "header.php";
-?>
+<?php include "header.php"; ?>
 
 <section class="profile-page">
 	<h1>Your Profile</h1>
@@ -12,18 +10,7 @@
 			<button>Log out</button>
 		</form>
 		
-		<?php
-		if (isset($_SESSION['username'])) {
-			$username = $_SESSION['username'];
-			echo "<p>You have done the following quizzes:</p>";
-			include "dbh.php";
-			$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
-			$result = mysqli_query($conn, $sql);
-			while ($row = mysqli_fetch_array($result)) {
-				echo "<p> Quiz #".$row['quizId']."</p>";
-			}
-		}
-		?>
+		<?php include "listquizzestaken.php"; ?>
 		
 		<p>Sorry! I'm still working on profile pages. There's not much to see here at the moment, but in the future you'll be able to see a bunch of stats here, such as the following (these are only a sample):</p>
 		<p>You'll be able to see such stats as:</p>
