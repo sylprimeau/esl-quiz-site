@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 		<link rel="stylesheet" href="style.css" type="text/css">
-		<title>This is the title</title>
+		<title>The ESL Quiz Site</title>
 	</head>
 	
 	<body>
