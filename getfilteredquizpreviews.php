@@ -36,8 +36,8 @@ $result = mysqli_query($conn,$sql);
 	<div class="quiz-preview quiz-specific-start" data-quizid=<?php echo $row['quizId']; ?>>
 		<h3 class="title"><?php echo $row['title']; ?></h3>
 		<p class="description"><?php echo $row['description']; ?></p>
-		<h5 class="category"><?php echo $row['category']; ?></h5>
-		<h5 class="level"><?php echo $row['level']; ?></h5>
+		<h5 class="category <?php echo $row['category']; ?>"><?php echo $row['category']; ?></h5>
+		<h5 class="level level<?php echo $row['level']; ?>"><?php echo $row['level']; ?></h5>
 	</div>
 <?php endwhile; ?>
 
