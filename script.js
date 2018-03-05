@@ -25,6 +25,14 @@ function init() {
 	setListeners();
 }
 
+// confirm abandoning mid-quiz (click on nav, etc)
+function confirmAbandon(e) {
+	var confirmAbandon = confirm("You are not finished this quiz yet. Are you sure you want to abandon it?");
+	if (!confirmAbandon) {
+		e.preventDefault();
+	}
+}
+
 // This function uses the hardcoded text in the HTML to (de)select categories. Ideally, however, you should have an array of "categories" that populates the buttons and then set an array of "selectedCategories" that will also be used to select the appropriate buttons.
 function getCategories() {
 	// get categories from local storage if they exist
@@ -68,15 +76,18 @@ function setListeners() {
 	filtersBtn.addEventListener("click", function() {
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
+	
 	// click a category button in filters to select a category
 	var catButton = document.querySelectorAll(".category-btn");
 	catButton.forEach(catBtnListeners);
+	
 	// click a level button in filters to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
 //	levelButton.forEach(levelBtnListeners);
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
 	}
+	
 	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function() {
@@ -98,14 +109,6 @@ function setListeners() {
 	var star = document.querySelectorAll(".ratingStar");
 	for (var i = 0; i < star.length; i++) {
 		setRating(i, star);
-	}
-}
-
-// confirm abandoning mid-quiz (click on nav, etc)
-function confirmAbandon(e) {
-	var confirmAbandon = confirm("You are not finished this quiz yet. Are you sure you want to abandon it?");
-	if (!confirmAbandon) {
-		e.preventDefault();
 	}
 }
 
@@ -140,7 +143,6 @@ function levelBtnListeners(index, levelButton) {
 			levelButton[index].classList.toggle("selected");
 		}
 		level = index + 1;
-		console.log("level selected " + level);
 	});
 }
 
