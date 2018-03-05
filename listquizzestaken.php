@@ -4,7 +4,7 @@
 		include "dbh.php";
 		$username = $_SESSION['username'];
 //		$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
-		$sql = "SELECT quizzes.title, quizzes.category, quizzes.level FROM quizzes_taken INNER JOIN quizzes ON quizzes_taken.quizId = quizzes.quizId WHERE username = '".$username."'";
+		$sql = "SELECT quizzes.title, quizzes.category, quizzes.level, quizzes.description FROM quizzes_taken INNER JOIN quizzes ON quizzes_taken.quizId = quizzes.quizId WHERE username = '".$username."'";
 		$result = mysqli_query($conn, $sql);
 		$quizzesTakenList = array();
 		$final = array();
@@ -15,6 +15,7 @@
 				"title" => $row['title'],
 				"category" => $row['category'],
 				"level" => $row['level'],
+				"description" => $row['description']
 			);
 			array_push($quizzesTakenList, $quizInfo);
 		}
@@ -28,7 +29,8 @@
 	?>
 	<div class="quizzes-taken">
 	<?php	foreach($final as $quizTaken): ?>
-		<p>Level <?php echo $quizTaken['level']; ?> - <?php echo $quizTaken['category']; ?> - <?php echo $quizTaken['title']; ?></p>
+		<p>Level <?php echo $quizTaken['level']; ?> - <?php echo $quizTaken['category']; ?></p>
+		<p><?php echo $quizTaken['title']; ?> - <?php echo $quizTaken['description']; ?></p>
 	<?php endforeach; ?>
 	</div>
 <?php endif; ?>
