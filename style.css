@@ -198,27 +198,33 @@ nav a {
 	background-color: rgb(224, 224, 224);
 }
 
-.quiz-preview h3 {
-	font-size: 1.5em;
-}
-
-.quiz-preview .category, .quiz-preview .level {
+.quiz-preview .category, .quiz-preview .level, .quiz-preview .completed {
 	display: inline-block;
 	position: absolute;
-	bottom: 0;
 	padding: 0.2em;
+}
+
+.quiz-preview .completed {
+	background-color: #050505;
+	color: white;
+	top: 0;
+	right: 0;
+	font-size: 0.5em;
 }
 
 .quiz-preview .category {
 	color: black;
 	left: 0;
+	bottom: 0;
 }
 
 .quiz-preview .level {
 	right: 0;
+	bottom: 0;
 }
 
 .quiz-preview .title {
+	font-size: 1.5em;
 	text-align: center;
 	padding: 0.3em 0.5em 0.3em 0.5em;
 	color: #8e1363;

@@ -83,11 +83,11 @@ function setListeners() {
 	
 	// click a level button in filters to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
-//	levelButton.forEach(levelBtnListeners);
+	// tried to use forEach here but couldn't figure out how to get it to work because levelBtnListeners uses [index-1] as an index
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
 	}
-	
+
 	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function() {
