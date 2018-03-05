@@ -26,7 +26,9 @@
 		}
 
 	?>
+	<div class="quizzes-taken">
 	<?php	foreach($final as $quizTaken): ?>
-			<p>Level <?php echo $quizTaken['level']; ?> - <?php echo $quizTaken['category']; ?> - <?php echo $quizTaken['title']; ?></p>
+		<p>Level <?php echo $quizTaken['level']; ?> - <?php echo $quizTaken['category']; ?> - <?php echo $quizTaken['title']; ?></p>
 	<?php endforeach; ?>
+	</div>
 <?php endif; ?>

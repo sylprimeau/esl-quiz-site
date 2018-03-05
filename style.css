@@ -313,8 +313,19 @@ footer {
 	margin: 1em;
 }
 
+.quizzes-taken p {
+	background-color: #efefef;
+	padding: 0.2em;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	margin: 0 auto;
+	width: 90%;
+}
 
-
+.quizzes-taken p:last-of-type {
+	border-bottom: 1px solid black;
+}
 
 
 

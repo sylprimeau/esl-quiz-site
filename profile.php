@@ -12,8 +12,7 @@
 		
 		<?php include "listquizzestaken.php"; ?>
 		
-		<p>Sorry! I'm still working on profile pages. There's not much to see here at the moment, but in the future you'll be able to see a bunch of stats here, such as the following (these are only a sample):</p>
-		<p>You'll be able to see such stats as:</p>
+		<p>In the future, you'll be able to see such stats as:</p>
 		<ul>
 			<li>all quizzes you've started, whether you finished, your score, the avg score of everyone, your percentile ranking</li>
 			<li>click on the quiz for details: time taken to complete, answers given, correct answers, etc.</li>
