@@ -19,8 +19,8 @@ var categories = [];
 init();
 
 function init() {
-	getLevel();
 	getCategories();
+	getLevel();
 	getFilteredQuizPreviews();
 	setListeners();
 }
