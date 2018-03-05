@@ -57,6 +57,7 @@ function setListeners() {
 	catButton.forEach(catBtnListeners);
 	// click a level button in filters to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
+//	levelButton.forEach(levelBtnListeners);
 	for (var i = 0; i < levelButton.length; i++) {
 		levelBtnListeners(i, levelButton);
 	}
@@ -155,6 +156,22 @@ function levelBtnListeners(index, levelButton) {
 			console.log("level selected " + level);
 		}
 	});
+}
+
+function toggleLevelBtnColor(index, levelButton) {
+	console.log("toggle called");
+	if (index == level - 1) {
+	// user clicks on current level
+		console.log("return called");
+		return;
+	} else {
+	// user clicks on different level than current
+		console.log("else called");
+//		levelButton[level - 1].style.backgroundColor = "dodgerblue";
+		levelButton[level - 1].classList.toggle("selected");
+//		levelButton[index].style.backgroundColor = "deepskyblue";
+		levelButton[index].classList.toggle("selected");
+	}
 }
 
 function quizPreviewListeners(elem) {
@@ -315,22 +332,6 @@ function nextQuiz() {
 	userAnswers = [];
 	quizNum += 1;
 	getQuiz();
-}
-
-function toggleLevelBtnColor(index, levelButton) {
-	console.log("toggle called");
-	if (index == level - 1) {
-	// user clicks on current level
-		console.log("return called");
-		return;
-	} else {
-	// user clicks on different level than current
-		console.log("else called");
-//		levelButton[level - 1].style.backgroundColor = "dodgerblue";
-		levelButton[level - 1].classList.toggle("selected");
-//		levelButton[index].style.backgroundColor = "deepskyblue";
-		levelButton[index].classList.toggle("selected");
-	}
 }
 
 function clearYellowStars() {
