@@ -131,16 +131,13 @@ function getFilteredQuizPreviews() {
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			console.log("filter variables sent to server");
 			var response = this.responseText;
-			console.log("response text: " + response);
 			var quizPreviews = document.querySelector(".quiz-previews");
 			quizPreviews.innerHTML = response;
+			// Event listeners need to be attached here, after the HTML is received in response
 			// click quiz preview to go directly to that quiz
 			var quizPreview = document.querySelectorAll(".quiz-specific-start");
-			for (var i = 0; i < quizPreview.length; i++) {
-				quizPreviewListeners(i, quizPreview);
-			}
+			quizPreview.forEach(quizPreviewListeners);
 			// click on "random quiz" box to load random quiz
 			var startButton = document.querySelector(".quiz-random-start");
 			startButton.addEventListener("click", function() {
@@ -165,12 +162,12 @@ function levelBtnListeners(index, levelButton) {
 	});
 }
 
-function quizPreviewListeners(index, quizPreview) {
-	quizPreview[index].addEventListener("click", function() {
-		console.log("Quiz ID is: " + quizPreview[index].dataset.quizid);
+function quizPreviewListeners(elem) {
+	elem.addEventListener("click", function() {
+		console.log("Quiz ID is: " + elem.dataset.quizid);
 		document.querySelector(".quiz-list").classList.toggle("hide");
 		document.querySelector("#problem").style.display = "block";
-		getSpecificQuiz(quizPreview[index].dataset.quizid);
+		getSpecificQuiz(elem.dataset.quizid);
 	});
 }
 
@@ -457,7 +454,6 @@ function getQuiz() {
 					nextLevel();
 				}
 			} else {
-				console.log("You have completed the following quizIds: " + completedQuizIds);
 				quiz = JSON.parse(quiz);
 				console.table(quiz);
 				savequiztaken();
@@ -476,8 +472,6 @@ function getQuiz() {
 }
 
 function getSpecificQuiz(id) {
-/* Clean this up so that you only receive the info you need for it to work without screwing up. You only need the quizId and not the others. */
-	console.log("getSpecificQuiz invoked for quizid: " + id);
 	xhr = new XMLHttpRequest();
 	xhr.open("GET", "getspecificquiz.php?quizId=" + id, true);
 	xhr.send();
