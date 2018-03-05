@@ -13,8 +13,6 @@ var problemIndex = -1;
 var userAnswers = [];
 var quiz;
 var quizPreviews;
-var completed = 0;
-var completedQuizIds = [];
 var level = 1;
 var categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
 
@@ -127,7 +125,7 @@ function catBtnListeners(index, catButton) {
 // fetch and load homepage with quiz previews restricted by filter settings 
 function getFilteredQuizPreviews() {
 	xhr = new XMLHttpRequest();
-	xhr.open("GET", "getfilteredquizpreviews.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&categories=" + categories, true);
+	xhr.open("GET", "getfilteredquizpreviews.php?level=" + level + "&categories=" + categories, true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -156,7 +154,6 @@ function levelBtnListeners(index, levelButton) {
 		} else {
 			toggleLevelBtnColor(index, levelButton);
 			level = index + 1;
-			completed = 0;
 			console.log("level selected " + level);
 		}
 	});
@@ -240,22 +237,17 @@ function reviewQuiz(quizScore, total) {
 	var text = "";
 	document.querySelector(".quizReview").innerHTML = "";
 	createReviewScreen();
-	completed += 1;
-	var quizText = "quizzes";
-	if (completed === 1) {
-		quizText = "quiz";
-	}
 	var percent = Math.round(quizScore/total * 100);
 	if (percent >= 90) {
-		text += "Outstanding! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
+		text += "Outstanding! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!";
 	} else if (percent >= 70) {
-		text += "Very good! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
+		text += "Very good! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!";
 	} else if (percent >= 50) {
-		text += "Doing pretty good! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
+		text += "Doing pretty good! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!";
 	} else if (percent >= 30) {
-		text += "Keep trying. You'll get there! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
+		text += "Keep trying. You'll get there! Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!";
 	} else {	
-		text += "Oh no! Maybe try one level lower? Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!<br>You have completed " + completed + " " + quizText + " in this level so far!";
+		text += "Oh no! Maybe try one level lower? Your score was " + quizScore + " out of " + total + ".<br>You scored " + percent + "%!";
 	}
 	document.querySelector(".quizReview").classList.toggle("hide");
 	document.querySelector("#problem").style.display = "none";
@@ -284,7 +276,6 @@ function calcScore() {
 	}
 	updateQuizInfo(quizScore);
 	reviewQuiz(quizScore, total);
-	completedQuizIds.push(quiz.quizId);
 }
 
 function addPoints(currentScore, points) {
@@ -407,7 +398,6 @@ function shuffleArray(arr, corrAns, probNum) {
 function nextLevel() {
 	toggleLevelBtnColor(level, document.querySelectorAll(".level-btn"));
 	level += 1;
-	completed = 0;
 	getQuiz();
 }
 
@@ -438,10 +428,9 @@ function savequiztaken() {
 function getQuiz(id) {
 	xhr = new XMLHttpRequest();
 	if (id) {
-		console.log("getQuiz received id:" + id);
 		xhr.open("GET", "getquiz.php?quizId=" + id, true);
 	} else {
-		xhr.open("GET", "getquiz.php?level=" + level + "&completedQuizIds=" + completedQuizIds + "&categories=" + categories, true);
+		xhr.open("GET", "getquiz.php?level=" + level + "&categories=" + categories, true);
 	}
 	xhr.send();
 	xhr.onreadystatechange = function() {

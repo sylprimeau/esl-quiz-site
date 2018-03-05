@@ -2,7 +2,6 @@
 
 //if user sets level/categories in filters, get that
 if (isset($_GET['level'])) {
-	$completedQuizIds = explode(",", $_GET['completedQuizIds']);
 	$level = intval($_GET['level']);
 	$categories = $_GET['categories'];
 //	echo "isset";

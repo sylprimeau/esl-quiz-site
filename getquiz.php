@@ -7,7 +7,8 @@ if (isset($_GET['quizId'])) {
 	$quizId = $_GET['quizId'];
 } else {
 	// get random quiz
-	$completedQuizIds = explode(",", $_GET['completedQuizIds']);
+	// "$completedQuizIds" used to take a value passed in through AJAX but I removed those from the JS file so it's not really needed anymore. But I can't delete it here yet because I need  the function that finds a random quiz and it uses it. Obviously, without a value, there is not "unique quiz" to look and match against completed quizzes for anymore but I want to keep that function so that I can reuse it when I use "completedQuizzes" gotten from the db.
+	$completedQuizIds = explode(",", "");
 	$level = intval($_GET['level']);
 	$categories = explode(",", $_GET['categories']); // creates array from string input
 
