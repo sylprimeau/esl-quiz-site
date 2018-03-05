@@ -19,26 +19,14 @@ var categories = [];
 init();
 
 function init() {
-	setLevel();
-	setCategories();
+	getLevel();
+	getCategories();
 	getFilteredQuizPreviews();
 	setListeners();
 }
 
-function setLevel() {
-	// get level from local storage if it exists
-	if (localStorage.getItem("level")) {
-		level = localStorage.getItem("level");
-	} else {
-		level = 1;
-	}
-	// highlight level button
-	var levelBtn = document.querySelectorAll(".level-btn");
-	levelBtn[level-1].classList.toggle("selected");
-}
-
 // This function uses the hardcoded text in the HTML to (de)select categories. Ideally, however, you should have an array of "categories" that populates the buttons and then set an array of "selectedCategories" that will also be used to select the appropriate buttons.
-function setCategories() {
+function getCategories() {
 	// get categories from local storage if they exist
 	if (localStorage.getItem("categories")) {
 		categories = localStorage.getItem("categories");
@@ -54,6 +42,18 @@ function setCategories() {
 			elem.classList.toggle("selected");
 		}
 	});
+}
+
+function getLevel() {
+	// get level from local storage if it exists
+	if (localStorage.getItem("level")) {
+		level = localStorage.getItem("level");
+	} else {
+		level = 1;
+	}
+	// highlight level button
+	var levelBtn = document.querySelectorAll(".level-btn");
+	levelBtn[level-1].classList.toggle("selected");
 }
 
 function setListeners() {
@@ -80,8 +80,7 @@ function setListeners() {
 	// click X to close filters options box
 	var filtersBoxX = document.querySelector(".filters-box .x-close");
 	filtersBoxX.addEventListener("click", function() {
-		localStorage.setItem("level", level);
-		localStorage.setItem("categories", categories.join());
+		setFilters();
 		getFilteredQuizPreviews();
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
@@ -102,7 +101,6 @@ function setListeners() {
 	}
 }
 
-
 // confirm abandoning mid-quiz (click on nav, etc)
 function confirmAbandon(e) {
 	var confirmAbandon = confirm("You are not finished this quiz yet. Are you sure you want to abandon it?");
@@ -111,12 +109,11 @@ function confirmAbandon(e) {
 	}
 }
 
-
 // add or remove categories to array by clicking category buttons in filters
 function catBtnListeners(elem) {
 	elem.addEventListener("click", function() {
 		// if category exists in array, remove it
-		if (categories.includes(elem.innerHTML) === true) {
+		if (categories.includes(elem.innerHTML)) {
 			// must have minimum 1 category in array
 			if (categories.length < 2) {
 				return;
@@ -129,7 +126,6 @@ function catBtnListeners(elem) {
 			elem.classList.toggle("selected");
 			categories.push(elem.innerHTML);
 		}
-		console.log("Categories are: " + categories);
 	});
 }
 
@@ -155,6 +151,11 @@ function toggleLevelBtnColor(index, levelButton) {
 //		levelButton[index].style.backgroundColor = "deepskyblue";
 		levelButton[index].classList.toggle("selected");
 	}
+}
+
+function setFilters() {
+	localStorage.setItem("level", level);
+	localStorage.setItem("categories", categories.join());
 }
 
 // fetch and load homepage with quiz previews restricted by filter settings 
