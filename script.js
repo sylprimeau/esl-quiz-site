@@ -52,11 +52,12 @@ function setListeners() {
 	filtersBtn.addEventListener("click", function() {
 		document.querySelector(".filters-box").classList.toggle("hide");
 	});
-	// click a category button in filters to select a category *** why aren't you using foreach here? should be!
+	// click a category button in filters to select a category
 	var catButton = document.querySelectorAll(".category-btn");
-	for (var i = 0; i < catButton.length; i++) {
-		catBtnListeners(i, catButton)
-	}
+	catButton.forEach(catBtnListeners);
+//	for (var i = 0; i < catButton.length; i++) {
+//		catBtnListeners(i, catButton)
+//	}
 	// click a level button in filters to select a level
 	var levelButton = document.querySelectorAll(".level-btn");
 	for (var i = 0; i < levelButton.length; i++) {
@@ -98,29 +99,53 @@ function confirmAbandon(e) {
 
 
 // add or remove categories to array by clicking category buttons in filters
-function catBtnListeners(index, catButton) {
-	catButton[index].addEventListener("click", function() {
+function catBtnListeners(elem) {
+	elem.addEventListener("click", function() {
 		if (problemIndex > 0) { // prevent changing categories mid-quiz
 			return;
 		} else {
 			// if category exists in array, remove it
-			if (categories.includes(catButton[index].innerHTML) === true) {
+			if (categories.includes(elem.innerHTML) === true) {
 				// must have minimum 1 category in array
 				if (categories.length < 2) {
 					return;
 				}
-				catButton[index].classList.toggle("selected");
-				var position = categories.indexOf(catButton[index].innerHTML);
+				elem.classList.toggle("selected");
+				var position = categories.indexOf(elem.innerHTML);
 				categories.splice(position, 1);
 			} else {
 			// if cat doesn't exist, add it
-				catButton[index].classList.toggle("selected");
-				categories.push(catButton[index].innerHTML);
+				elem.classList.toggle("selected");
+				categories.push(elem.innerHTML);
 			}
 		}
 		console.log("Categories are: " + categories);
 	});
 }
+
+//function catBtnListeners(index, catButton) {
+//	catButton[index].addEventListener("click", function() {
+//		if (problemIndex > 0) { // prevent changing categories mid-quiz
+//			return;
+//		} else {
+//			// if category exists in array, remove it
+//			if (categories.includes(catButton[index].innerHTML) === true) {
+//				// must have minimum 1 category in array
+//				if (categories.length < 2) {
+//					return;
+//				}
+//				catButton[index].classList.toggle("selected");
+//				var position = categories.indexOf(catButton[index].innerHTML);
+//				categories.splice(position, 1);
+//			} else {
+//			// if cat doesn't exist, add it
+//				catButton[index].classList.toggle("selected");
+//				categories.push(catButton[index].innerHTML);
+//			}
+//		}
+//		console.log("Categories are: " + categories);
+//	});
+//}
 
 // fetch and load homepage with quiz previews restricted by filter settings 
 function getFilteredQuizPreviews() {
