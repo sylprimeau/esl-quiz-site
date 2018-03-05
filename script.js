@@ -13,31 +13,50 @@ var problemIndex = -1;
 var userAnswers = [];
 var quiz;
 var quizPreviews;
-var level = 1;
-var categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
+var level;
+var categories = [];
 
 init();
 
 function init() {
-	if (localStorage.getItem("level")) {
-		level = localStorage.getItem("level");
-		categories = localStorage.getItem("categories");
-		categories = categories.split(",");
-	}
+	setLevel();
+	setCategories();
 	getFilteredQuizPreviews();
 	setListeners();
-	// refactor this so that level1 is selected programmatically onload
+}
+
+function setLevel() {
+	if (localStorage.getItem("level")) {
+		level = localStorage.getItem("level");
+	} else {
+		level = 1;
+	}
 	// select "level 1" button
 	var levelBtn = document.querySelectorAll(".level-btn");
 	levelBtn[level-1].classList.toggle("selected");
-	// select Vocab category
-	var catBtn = document.querySelectorAll(".category-btn");
-	for (var i = 0; i < catBtn.length; i++) {
-		var text = catBtn[i].innerHTML;
-		if (categories.includes(text)) {
-			catBtn[i].classList.toggle("selected");
-		}
+}
+
+function setCategories() {
+	if (localStorage.getItem("categories")) {
+		categories = localStorage.getItem("categories");
+		categories = categories.split(",");
+	} else {
+		categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
 	}
+	// select categories
+	var catBtn = document.querySelectorAll(".category-btn");
+	catBtn.forEach(function(elem) {
+		var text = elem.innerHTML;
+		if (categories.includes(text)) {
+			elem.classList.toggle("selected");
+		}
+	});
+//	for (var i = 0; i < catBtn.length; i++) {
+//		var text = catBtn[i].innerHTML;
+//		if (categories.includes(text)) {
+//			catBtn[i].classList.toggle("selected");
+//		}
+//	}
 }
 
 function setListeners() {
@@ -99,23 +118,19 @@ function confirmAbandon(e) {
 // add or remove categories to array by clicking category buttons in filters
 function catBtnListeners(elem) {
 	elem.addEventListener("click", function() {
-		if (problemIndex > 0) { // prevent changing categories mid-quiz
-			return;
-		} else {
-			// if category exists in array, remove it
-			if (categories.includes(elem.innerHTML) === true) {
-				// must have minimum 1 category in array
-				if (categories.length < 2) {
-					return;
-				}
-				elem.classList.toggle("selected");
-				var position = categories.indexOf(elem.innerHTML);
-				categories.splice(position, 1);
-			} else {
-			// if cat doesn't exist, add it
-				elem.classList.toggle("selected");
-				categories.push(elem.innerHTML);
+		// if category exists in array, remove it
+		if (categories.includes(elem.innerHTML) === true) {
+			// must have minimum 1 category in array
+			if (categories.length < 2) {
+				return;
 			}
+			elem.classList.toggle("selected");
+			var position = categories.indexOf(elem.innerHTML);
+			categories.splice(position, 1);
+		} else {
+		// if cat doesn't exist, add it
+			elem.classList.toggle("selected");
+			categories.push(elem.innerHTML);
 		}
 		console.log("Categories are: " + categories);
 	});
@@ -123,13 +138,9 @@ function catBtnListeners(elem) {
 
 function levelBtnListeners(index, levelButton) {
 	levelButton[index].addEventListener("click", function() {
-		if (problemIndex > 0) { // prevent changing levels mid-quiz
-			return;
-		} else {
-			toggleLevelBtnColor(index, levelButton);
-			level = index + 1;
-			console.log("level selected " + level);
-		}
+		toggleLevelBtnColor(index, levelButton);
+		level = index + 1;
+		console.log("level selected " + level);
 	});
 }
 
