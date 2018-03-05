@@ -26,24 +26,27 @@ function init() {
 }
 
 function setLevel() {
+	// get level from local storage if it exists
 	if (localStorage.getItem("level")) {
 		level = localStorage.getItem("level");
 	} else {
 		level = 1;
 	}
-	// select "level 1" button
+	// highlight level button
 	var levelBtn = document.querySelectorAll(".level-btn");
 	levelBtn[level-1].classList.toggle("selected");
 }
 
+// This function uses the hardcoded text in the HTML to (de)select categories. Ideally, however, you should have an array of "categories" that populates the buttons and then set an array of "selectedCategories" that will also be used to select the appropriate buttons.
 function setCategories() {
+	// get categories from local storage if they exist
 	if (localStorage.getItem("categories")) {
 		categories = localStorage.getItem("categories");
-		categories = categories.split(",");
+		categories = categories.split(","); // needed because LS only stores strings
 	} else {
 		categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
 	}
-	// select categories
+	// highlight category buttons
 	var catBtn = document.querySelectorAll(".category-btn");
 	catBtn.forEach(function(elem) {
 		var text = elem.innerHTML;
@@ -51,12 +54,6 @@ function setCategories() {
 			elem.classList.toggle("selected");
 		}
 	});
-//	for (var i = 0; i < catBtn.length; i++) {
-//		var text = catBtn[i].innerHTML;
-//		if (categories.includes(text)) {
-//			catBtn[i].classList.toggle("selected");
-//		}
-//	}
 }
 
 function setListeners() {
