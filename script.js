@@ -476,43 +476,6 @@ function getQuiz(id) {
 	};
 }
 
-//// This function shouldn't be needed anymore - delete if no problems
-//function getSpecificQuiz(id) {
-//	xhr = new XMLHttpRequest();
-//	xhr.open("GET", "getspecificquiz.php?quizId=" + id, true);
-//	xhr.send();
-//	xhr.onreadystatechange = function() {
-//		if (this.readyState == 4 && this.status == 200) {
-//			quiz = this.responseText;
-//			problemIndex = 0;
-//			var userAnswers = [];
-//			if (!quiz) {
-//				if (level === 5) {
-//					alert("There are no more quizzes for your selected category. Try a lower level or other categories.");
-//					clearScreen();
-//					return;
-//				} else {
-//					alert("There are no more quizzes for your selected category in this level. Let's try the next level!");
-//					nextLevel();
-//				}
-//			} else {
-//				quiz = JSON.parse(quiz);
-//				console.table(quiz);
-//				savequiztaken();
-//				if (quiz.randomPs === true) {
-//					quiz.problems = shuffleArray(quiz.problems);
-//				}
-//				if (quiz.randomAs === true) {
-//					for (var i = 0; i < quiz.problems.length; i++) {
-//						quiz.problems[i].answers = shuffleArray(quiz.problems[i].answers, quiz.problems[i].correctAns, i);
-//					}
-//				}
-//				displayProblem();
-//			}
-//		}
-//	};
-//}
-
 function createReviewScreen() {
 	var scoreDiv = document.createElement("div");
 	scoreDiv.setAttribute("id", "scoreDiv");
@@ -557,6 +520,53 @@ function createReviewScreen() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+//// This function shouldn't be needed anymore - delete if no problems
+//function getSpecificQuiz(id) {
+//	xhr = new XMLHttpRequest();
+//	xhr.open("GET", "getspecificquiz.php?quizId=" + id, true);
+//	xhr.send();
+//	xhr.onreadystatechange = function() {
+//		if (this.readyState == 4 && this.status == 200) {
+//			quiz = this.responseText;
+//			problemIndex = 0;
+//			var userAnswers = [];
+//			if (!quiz) {
+//				if (level === 5) {
+//					alert("There are no more quizzes for your selected category. Try a lower level or other categories.");
+//					clearScreen();
+//					return;
+//				} else {
+//					alert("There are no more quizzes for your selected category in this level. Let's try the next level!");
+//					nextLevel();
+//				}
+//			} else {
+//				quiz = JSON.parse(quiz);
+//				console.table(quiz);
+//				savequiztaken();
+//				if (quiz.randomPs === true) {
+//					quiz.problems = shuffleArray(quiz.problems);
+//				}
+//				if (quiz.randomAs === true) {
+//					for (var i = 0; i < quiz.problems.length; i++) {
+//						quiz.problems[i].answers = shuffleArray(quiz.problems[i].answers, quiz.problems[i].correctAns, i);
+//					}
+//				}
+//				displayProblem();
+//			}
+//		}
+//	};
+//}
 
 
 
