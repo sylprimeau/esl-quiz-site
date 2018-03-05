@@ -131,26 +131,17 @@ function catBtnListeners(elem) {
 
 function levelBtnListeners(index, levelButton) {
 	levelButton[index].addEventListener("click", function() {
-		toggleLevelBtnColor(index, levelButton);
+		if (index == level - 1) {
+			// user clicks on current level
+			return;
+		} else {
+			// user clicks on different level than current
+			levelButton[level - 1].classList.toggle("selected");
+			levelButton[index].classList.toggle("selected");
+		}
 		level = index + 1;
 		console.log("level selected " + level);
 	});
-}
-
-function toggleLevelBtnColor(index, levelButton) {
-	console.log("toggle called");
-	if (index == level - 1) {
-	// user clicks on current level
-		console.log("return called");
-		return;
-	} else {
-	// user clicks on different level than current
-		console.log("else called");
-//		levelButton[level - 1].style.backgroundColor = "dodgerblue";
-		levelButton[level - 1].classList.toggle("selected");
-//		levelButton[index].style.backgroundColor = "deepskyblue";
-		levelButton[index].classList.toggle("selected");
-	}
 }
 
 function setFilters() {
