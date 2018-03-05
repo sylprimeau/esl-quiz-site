@@ -460,6 +460,7 @@ function getQuiz() {
 				console.log("You have completed the following quizIds: " + completedQuizIds);
 				quiz = JSON.parse(quiz);
 				console.table(quiz);
+				savequiztaken();
 				if (quiz.randomPs === true) {
 					quiz.problems = shuffleArray(quiz.problems);
 				}
