@@ -36,7 +36,9 @@
 				</div>
 			</div>
 
-			<div class="quiz-previews" id="quiz-previews"></div>
+			<div class="quiz-previews" id="quiz-previews">
+				<?php include "getfilteredquizpreviews.php"; ?>
+			</div>
 
 			<footer>
 				<p>Footer will go here</p>

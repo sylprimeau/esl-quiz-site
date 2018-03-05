@@ -131,88 +131,23 @@ function getFilteredQuizPreviews() {
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			quizPreviews = this.responseText;
-			if (!quizPreviews) {
-				alert("No quiz previews to retrieve!");
-			} else {
-				quizPreviews = JSON.parse(quizPreviews);
-				console.table(quizPreviews);
-				// build out quiz previews on homepage
-				// build "quiz-random-start" div first
-				var quizPreviewsDiv = document.querySelector("#quiz-previews");
-				quizPreviewsDiv.innerHTML = "";
-				var node = document.createElement("div");
-				var att = document.createAttribute("class");
-				att.value = "quiz-preview quiz-random-start";
-				node.setAttributeNode(att);
-				var node2 = document.createElement("h3");
-				var att2 = document.createAttribute("class");
-				att2.value = "title";
-				node2.setAttributeNode(att2);
-				var textnode2 = document.createTextNode("Random Quiz");
-				node2.appendChild(textnode2);
-				var node3 = document.createElement("p");
-				var att3 = document.createAttribute("class");
-				att3.value = "description";
-				node3.setAttributeNode(att3);
-				var textnode3 = document.createTextNode("Click here to do a random quiz or select one from the list below. Use the filters to restrict quiz selection by level and categories!");
-				node3.appendChild(textnode3);
-				node.appendChild(node2);
-				node.appendChild(node3);
-				quizPreviewsDiv.appendChild(node);
-				// loop to build all quiz previews restricted by filters
-				for (var i = 0; i < quizPreviews.length; i++) {
-					var node = document.createElement("div");
-					var att = document.createAttribute("class");
-					att.value = "quiz-preview quiz-specific-start";
-					node.setAttributeNode(att);
-					var atta = document.createAttribute("data-quizid");
-					atta.value = quizPreviews[i].quizId;
-					node.setAttributeNode(atta);
-					var node2 = document.createElement("h3");
-					var att2a = document.createAttribute("class");
-					att2a.value = "title";
-					node2.setAttributeNode(att2a);
-					var textnode2 = document.createTextNode(quizPreviews[i].title);
-					node2.appendChild(textnode2);
-					var node3 = document.createElement("p");
-					var att3 = document.createAttribute("class");
-					att3.value = "description";
-					node3.setAttributeNode(att3);
-					var textnode3 = document.createTextNode(quizPreviews[i].description);
-					node3.appendChild(textnode3);
-					var node4 = document.createElement("h5");
-					var att4 = document.createAttribute("class");
-					att4.value = "category " + quizPreviews[i].category;
-					node4.setAttributeNode(att4);
-					var textnode4 = document.createTextNode(quizPreviews[i].category);
-					node4.appendChild(textnode4);
-					var node5 = document.createElement("h5");
-					var att5 = document.createAttribute("class");
-					att5.value = "level level" + quizPreviews[i].level;
-					node5.setAttributeNode(att5);
-					var textnode5 = document.createTextNode("Level " + quizPreviews[i].level);
-					node5.appendChild(textnode5);
-					node.appendChild(node2);
-					node.appendChild(node3);
-					node.appendChild(node4);
-					node.appendChild(node5);
-					quizPreviewsDiv.appendChild(node);
-				}
-				// need to set listeners in callback cuz otherwise elements are created AFTER listeners are set
-				// click quiz preview to go directly to that quiz
-				var quizPreview = document.querySelectorAll(".quiz-specific-start");
-				for (var i = 0; i < quizPreview.length; i++) {
-					quizPreviewListeners(i, quizPreview);
-				}
-				// click on "random quiz" box to load random quiz
-				var startButton = document.querySelector(".quiz-random-start");
-				startButton.addEventListener("click", function() {
-					document.querySelector(".quiz-list").classList.toggle("hide");
-					document.querySelector("#problem").style.display = "block";
-					getQuiz();
-				});
+			console.log("filter variables sent to server");
+			var response = this.responseText;
+			console.log("response text: " + response);
+			var quizPreviews = document.querySelector(".quiz-previews");
+			quizPreviews.innerHTML = response;
+			// click quiz preview to go directly to that quiz
+			var quizPreview = document.querySelectorAll(".quiz-specific-start");
+			for (var i = 0; i < quizPreview.length; i++) {
+				quizPreviewListeners(i, quizPreview);
 			}
+			// click on "random quiz" box to load random quiz
+			var startButton = document.querySelector(".quiz-random-start");
+			startButton.addEventListener("click", function() {
+				document.querySelector(".quiz-list").classList.toggle("hide");
+				document.querySelector("#problem").style.display = "block";
+				getQuiz();
+			});
 		}
 	};
 }
