@@ -121,31 +121,6 @@ function catBtnListeners(elem) {
 	});
 }
 
-// fetch and load homepage with quiz previews restricted by filter settings 
-function getFilteredQuizPreviews() {
-	xhr = new XMLHttpRequest();
-	xhr.open("GET", "getfilteredquizpreviews.php?level=" + level + "&categories=" + categories, true);
-	xhr.send();
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var response = this.responseText;
-			var quizPreviews = document.querySelector(".quiz-previews");
-			quizPreviews.innerHTML = response;
-			// Event listeners need to be attached here, after the HTML is received in response
-			// click quiz preview to go directly to that quiz
-			var quizPreview = document.querySelectorAll(".quiz-specific-start");
-			quizPreview.forEach(quizPreviewListeners);
-			// click on "random quiz" box to load random quiz
-			var startButton = document.querySelector(".quiz-random-start");
-			startButton.addEventListener("click", function() {
-				document.querySelector(".quiz-list").classList.toggle("hide");
-				document.querySelector("#problem").style.display = "block";
-				getQuiz();
-			});
-		}
-	};
-}
-
 function levelBtnListeners(index, levelButton) {
 	levelButton[index].addEventListener("click", function() {
 		if (problemIndex > 0) { // prevent changing levels mid-quiz
@@ -172,6 +147,31 @@ function toggleLevelBtnColor(index, levelButton) {
 //		levelButton[index].style.backgroundColor = "deepskyblue";
 		levelButton[index].classList.toggle("selected");
 	}
+}
+
+// fetch and load homepage with quiz previews restricted by filter settings 
+function getFilteredQuizPreviews() {
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "getfilteredquizpreviews.php?level=" + level + "&categories=" + categories, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = this.responseText;
+			var quizPreviews = document.querySelector(".quiz-previews");
+			quizPreviews.innerHTML = response;
+			// Event listeners need to be attached here, after the HTML is received in response
+			// click quiz preview to go directly to that quiz
+			var quizPreview = document.querySelectorAll(".quiz-specific-start");
+			quizPreview.forEach(quizPreviewListeners);
+			// click on "random quiz" box to load random quiz
+			var startButton = document.querySelector(".quiz-random-start");
+			startButton.addEventListener("click", function() {
+				document.querySelector(".quiz-list").classList.toggle("hide");
+				document.querySelector("#problem").style.display = "block";
+				getQuiz();
+			});
+		}
+	};
 }
 
 function quizPreviewListeners(elem) {
