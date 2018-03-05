@@ -3,17 +3,30 @@
 	<?php
 		include "dbh.php";
 		$username = $_SESSION['username'];
-		$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
+//		$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
+		$sql = "SELECT quizzes.title, quizzes.category, quizzes.level FROM quizzes_taken INNER JOIN quizzes ON quizzes_taken.quizId = quizzes.quizId WHERE username = '".$username."'";
 		$result = mysqli_query($conn, $sql);
 		$quizzesTakenList = array();
+		$final = array();
 	?>
 	<?php
 		while ($row = mysqli_fetch_array($result)) {
-			array_push($quizzesTakenList, $row['quizId']);
+			$quizInfo = array(
+				"title" => $row['title'],
+				"category" => $row['category'],
+				"level" => $row['level'],
+			);
+			array_push($quizzesTakenList, $quizInfo);
 		}
-		$quizzesTakenList = array_unique($quizzesTakenList);
+//		$quizzesTakenList = array_unique($quizzesTakenList);
+		foreach ($quizzesTakenList as $item) {
+			if (! in_array($item, $final)) {
+				array_push($final, $item);
+			}
+		}
+
 	?>
-	<?php	foreach($quizzesTakenList as $quizTaken): ?>
-			<p>Quiz #<?php echo $quizTaken; ?></p>
+	<?php	foreach($final as $quizTaken): ?>
+			<p>Level <?php echo $quizTaken['level']; ?> - <?php echo $quizTaken['category']; ?> - <?php echo $quizTaken['title']; ?></p>
 	<?php endforeach; ?>
 <?php endif; ?>
