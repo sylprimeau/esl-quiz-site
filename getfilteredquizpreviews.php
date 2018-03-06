@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	include "dbh.php";
 
 	//if user sets level/categories in filters, they're passed in
@@ -23,6 +23,17 @@
 	$sql = "SELECT * FROM quizzes WHERE level = ".$level." AND category IN ($categories)";
 	$result = mysqli_query($conn,$sql);
 
+	if (isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$sql2 = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
+		$result2 = mysqli_query($conn, $sql2);
+		$quizzesTakenList = array();
+		while ($row2 = mysqli_fetch_array($result2)) {
+			array_push($quizzesTakenList, $row2['quizId']);
+		}
+		$quizzesTakenList = array_unique($quizzesTakenList);
+	}
+
 ?>
 
 <div class="quiz-preview quiz-random-start">
@@ -32,6 +43,11 @@
 
 <?php while ($row = mysqli_fetch_array($result)): ?>
 	<div class="quiz-preview quiz-specific-start" data-quizid=<?php echo $row['quizId']; ?>>
+		<?php if (isset($_SESSION['username'])): ?>
+			<?php if (in_array($row['quizId'], $quizzesTakenList)): ?>
+				<h5 class="completed">Completed</h5>
+			<?php endif; ?>
+		<?php endif; ?>
 		<h3 class="title"><?php echo $row['title']; ?></h3>
 		<p class="description"><?php echo $row['description']; ?></p>
 		<h5 class="category <?php echo $row['category']; ?>"><?php echo $row['category']; ?></h5>
