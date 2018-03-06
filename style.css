@@ -234,7 +234,7 @@ nav a {
 	font-size: 1.5em;
 	text-align: center;
 	padding: 0.3em 0.5em 0.3em 0.5em;
-	color: #8e1363;
+	color: #324fcc;
 }
 
 .quiz-preview p {
@@ -246,27 +246,27 @@ nav a {
 }
 
 .quiz-random-start .title {
-	color: #2b2b9f;
+	color: #a71ac1;
 }
 
 .Grammar {
-	background-color: lightgreen;
+	background-color: #9fffaa;
 }
 
 .Vocabulary {
-	background-color: pink;
+	background-color: #dbd2fa;
 }
 
 .Pronunciation {
-	background-color: lightblue;
+	background-color: #c9f2ff;
 }
 
 .Idioms {
-	background-color: #faf;
+	background-color: #ffcece;
 }
 
 .Conversation {
-	background-color: lightgrey;
+	background-color: #fbff97;
 }
 
 .level1 {
