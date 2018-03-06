@@ -36,7 +36,7 @@
 	<div class="quiz-preview quiz-specific-start" data-quizid=<?php echo $row['quizId']; ?>>
 		<?php if (isset($_SESSION['username'])): ?>
 			<?php if (in_array($row['quizId'], $quizzesTakenList)): ?>
-				<h5 class="completed">Completed</h5>
+				<h5 class="completed">DONE!</h5>
 			<?php endif; ?>
 		<?php endif; ?>
 		<h3 class="title"><?php echo $row['title']; ?></h3>

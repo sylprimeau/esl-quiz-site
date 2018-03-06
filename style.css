@@ -205,11 +205,18 @@ nav a {
 }
 
 .quiz-preview .completed {
-	background-color: #050505;
-	color: white;
-	top: 0;
-	right: 0;
-	font-size: 0.5em;
+	top: 1em;
+	left: 1em;
+	height: 3em;
+	width: 3em;
+	border: 3px solid red;
+	color: red;
+	border-radius: 50%;
+	line-height: 3em;
+	text-align: center;
+	font-size: 0.8em;
+	transform: rotate(-20deg);
+	opacity: 0.6;
 }
 
 .quiz-preview .category {
