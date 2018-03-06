@@ -1,12 +1,11 @@
 <?php
 	if (isset($_SESSION['username'])) {
-		include "dbh.php";
 		$username = $_SESSION['username'];
-		$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
-		$result = mysqli_query($conn, $sql);
+		$sql2 = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
+		$result2 = mysqli_query($conn, $sql2);
 		$quizzesTakenList = array();
-		while ($row = mysqli_fetch_array($result)) {
-			array_push($quizzesTakenList, $row['quizId']);
+		while ($row2 = mysqli_fetch_array($result2)) {
+			array_push($quizzesTakenList, $row2['quizId']);
 		}
 		$quizzesTakenList = array_unique($quizzesTakenList);
 	}
