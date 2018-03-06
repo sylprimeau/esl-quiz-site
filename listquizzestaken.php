@@ -19,7 +19,8 @@
 				"title" => $row['title'],
 				"category" => $row['category'],
 				"level" => $row['level'],
-				"description" => $row['description']
+				"description" => $row['description'],
+				"score" => $row['score']
 			);
 			array_push($quizzesCompletedList, $quizInfo);
 		}
@@ -51,7 +52,7 @@
 	
 	<div class="quizzes-completed quiz-table">
 	<?php	foreach($finalCompleted as $quizCompleted): ?>
-		<p>Level <?php echo $quizCompleted['level']; ?> - <?php echo $quizCompleted['category']; ?></p>
+		<p>Level <?php echo $quizCompleted['level']; ?> - <?php echo $quizCompleted['category']; ?><span class='score'>Score: <?php echo $quizCompleted['score']*10; ?>%</span></p>
 		<p><?php echo $quizCompleted['title']; ?> - <?php echo $quizCompleted['description']; ?></p>
 	<?php endforeach; ?>
 	</div>

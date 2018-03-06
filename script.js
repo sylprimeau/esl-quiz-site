@@ -293,7 +293,7 @@ function calcScore() {
 	}
 	updateQuizInfo(quizScore);
 	reviewQuiz(quizScore, total);
-	savequizcompleted();
+	savequizcompleted(quizScore);
 }
 
 function addPoints(currentScore, points) {
@@ -427,9 +427,9 @@ function savequizstarted() {
 	}
 }
 
-function savequizcompleted() {
+function savequizcompleted(quizScore) {
 	xhr = new XMLHttpRequest();
-	xhr.open("GET", "savequizcompleted.php?quizId=" + quiz.quizId, true);
+	xhr.open("GET", "savequizcompleted.php?quizId=" + quiz.quizId + "&score=" + quizScore, true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
