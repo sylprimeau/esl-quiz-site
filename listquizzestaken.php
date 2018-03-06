@@ -4,7 +4,7 @@
 		include "dbh.php";
 		$username = $_SESSION['username'];
 //		$sql = "SELECT * FROM quizzes_taken WHERE username = '".$username."'";
-		$sql = "SELECT quizzes.title, quizzes.category, quizzes.level, quizzes.description FROM quizzes_taken INNER JOIN quizzes ON quizzes_taken.quizId = quizzes.quizId WHERE username = '".$username."'";
+		$sql = "SELECT * FROM quizzes_taken INNER JOIN quizzes ON quizzes_taken.quizId = quizzes.quizId WHERE username = '".$username."'";
 		$result = mysqli_query($conn, $sql);
 		$quizzesTakenList = array();
 		$final = array();

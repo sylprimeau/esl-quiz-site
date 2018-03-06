@@ -1,18 +1,16 @@
 <?php
 
-//if user sets level/categories in filters, get that
+include "dbh.php";
+
+//if user sets level/categories in filters, they're passed in
 if (isset($_GET['level'])) {
 	$level = intval($_GET['level']);
 	$categories = $_GET['categories'];
-//	echo "isset";
 } else {
-	// defaults in case nothing was stored
+	// defaults in case nothing was passed in
 	$level = 1;
 	$categories = "Vocabulary, Grammar, Pronunciation, Conversation, Idioms";
-//	echo "!isset";
 }
-
-include "dbh.php";
 
 // explode to make an array, add single quotes to each value and then implode it back into a string.
 $categories = explode(",", $categories); // creates array from string input
