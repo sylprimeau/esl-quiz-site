@@ -1,27 +1,28 @@
 <?php
 
-include "dbh.php";
+	include "dbh.php";
 
-//if user sets level/categories in filters, they're passed in
-if (isset($_GET['level'])) {
-	$level = intval($_GET['level']);
-	$categories = $_GET['categories'];
-} else {
-	// defaults in case nothing was passed in
-	$level = 1;
-	$categories = "Vocabulary, Grammar, Pronunciation, Conversation, Idioms";
-}
+	//if user sets level/categories in filters, they're passed in
+	if (isset($_GET['level'])) {
+		$level = intval($_GET['level']);
+		$categories = $_GET['categories'];
+	} else {
+		// defaults in case nothing was passed in
+		$level = 1;
+		$categories = "Vocabulary, Grammar, Pronunciation, Conversation, Idioms";
+	}
 
-// explode to make an array, add single quotes to each value and then implode it back into a string.
-$categories = explode(",", $categories); // creates array from string input
-foreach($categories as $key => $val) {
-	$categories[$key] = "'".$val."'";
-}
-$categories = implode(",", $categories);
+	// explode to make an array, add single quotes to each value and then implode it back into a string.
+	$categories = explode(",", $categories); // creates array from string input
+	foreach($categories as $key => $val) {
+		$categories[$key] = "'".$val."'";
+	}
+	$categories = implode(",", $categories);
 
-// return all quizzes from specified level AND selected categories
-$sql = "SELECT * FROM quizzes WHERE level = ".$level." AND category IN ($categories)";
-$result = mysqli_query($conn,$sql);
+	// return all quizzes from specified level AND selected categories
+	$sql = "SELECT * FROM quizzes WHERE level = ".$level." AND category IN ($categories)";
+	$result = mysqli_query($conn,$sql);
+
 ?>
 
 <div class="quiz-preview quiz-random-start">
