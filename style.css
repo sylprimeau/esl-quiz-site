@@ -23,6 +23,16 @@ header, .wrapper {
 	background-color: #fff;
 }
 
+button {
+	border: none;
+	font-size: 1em;
+	padding: 0.5em 1.5em;
+	margin: 1em;
+	background-color: #0045ff;
+	color: white;
+	cursor: pointer;
+}
+
 /***********************************************/
 /***********************************************/
 /***********************************************/
@@ -198,15 +208,29 @@ nav a {
 	background-color: rgb(224, 224, 224);
 }
 
-.quiz-preview .category, .quiz-preview .level, .quiz-preview .completed {
+.quiz-preview .category, .quiz-preview .level, .quiz-preview .completed, .quiz-preview .started {
 	display: inline-block;
 	position: absolute;
 	padding: 0.2em;
 }
 
+.quiz-preview .started {
+	top: 2em;
+	right: 1em;
+	height: 3em;
+	width: 7em;
+	border: 3px solid purple;
+	color: purple;
+	line-height: 3em;
+	text-align: center;
+	font-size: 0.6em;
+	transform: rotate(-20deg);
+	opacity: 0.7;
+}
+
 .quiz-preview .completed {
 	top: 1em;
-	left: 1em;
+	right: 1em;
 	height: 3em;
 	width: 3em;
 	border: 3px solid red;
@@ -216,7 +240,7 @@ nav a {
 	text-align: center;
 	font-size: 0.8em;
 	transform: rotate(-20deg);
-	opacity: 0.6;
+	opacity: 0.7;
 }
 
 .quiz-preview .category {
@@ -242,7 +266,7 @@ nav a {
 }
 
 .quiz-random-start {
-	background-color: rgba(35, 181, 63, 0.2);
+	background-color: #aeebba;
 }
 
 .quiz-random-start .title {
@@ -326,7 +350,7 @@ footer {
 	margin: 1em;
 }
 
-.quizzes-taken p {
+.quiz-table p {
 	background-color: #9cf;
 	padding: 0.2em;
 	margin: 0 auto;
@@ -335,14 +359,19 @@ footer {
 	border-right: 1px solid black;
 }
 
-.quizzes-taken p:nth-of-type(even) {
+.quiz-table p:nth-of-type(even) {
 	border-bottom: 1px solid black;
 	background-color: #efefef;
 }
 
-.quizzes-taken p:first-of-type {
+.quiz-table p:first-of-type {
 	border-top: 1px solid black;
 }
+
+
+
+
+
 
 
 

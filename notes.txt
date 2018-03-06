@@ -1,10 +1,16 @@
 
 
 
-*** working on showing quizzes taken ***
+When saving quizStarted:
+- query db for username = $username and quizId = $quizId
+- if no quizId, INSERT
+- if quizId and started = 1, quit
 
-- need to save quiz id's to the user db whenever a logged in user does a quiz
-- on the profile page, script to get info from db with ajax and then display it
+When saving quizCompleted:
+- query db for username = $username and quizId = $quizId
+- there should always be a quizId because of quizStarted
+- UPDATE completed = 1
+
 
 
 

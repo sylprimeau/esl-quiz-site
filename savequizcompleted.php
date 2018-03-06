@@ -9,7 +9,7 @@
 		$quizId = intval($_GET['quizId']);
 		$username = $_SESSION['username'];
 		
-		$sql = "INSERT INTO quizzes_taken (username, quizId) VALUES ('$username', '$quizId')";
-		$result = mysqli_query($conn, $sql);
+		$sqlUpdate = "UPDATE quizzes_taken SET completed = 1 WHERE username = '$username' AND quizId = '$quizId'";
+		$resultUpdate = mysqli_query($conn, $sqlUpdate);
 	}
 ?>

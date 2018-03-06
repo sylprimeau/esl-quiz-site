@@ -23,7 +23,8 @@
 	$sql = "SELECT * FROM quizzes WHERE level = ".$level." AND category IN ($categories)";
 	$result = mysqli_query($conn,$sql);
 
-	include "getquizzestaken.php";
+	include "getquizzesstarted.php";
+	include "getquizzescompleted.php";
 
 ?>
 
@@ -35,8 +36,10 @@
 <?php while ($row = mysqli_fetch_array($result)): ?>
 	<div class="quiz-preview quiz-specific-start" data-quizid=<?php echo $row['quizId']; ?>>
 		<?php if (isset($_SESSION['username'])): ?>
-			<?php if (in_array($row['quizId'], $quizzesTakenList)): ?>
+			<?php if (in_array($row['quizId'], $quizzesCompletedList)): ?>
 				<h5 class="completed">DONE!</h5>
+			<?php elseif (in_array($row['quizId'], $quizzesStartedList)): ?>
+				<h5 class="started">INCOMPLETE!</h5>
 			<?php endif; ?>
 		<?php endif; ?>
 		<h3 class="title"><?php echo $row['title']; ?></h3>
