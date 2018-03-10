@@ -291,6 +291,10 @@ nav a {
 	background-color: #fbff97;
 }
 
+.Spelling {
+	background-color: #fcd691;
+}
+
 .level1 {
 	color: green;
 }
@@ -308,7 +312,7 @@ nav a {
 }
 
 .level5 {
-	color: black;
+	color: orange;
 }
 /* quiz preview end */
 
@@ -387,21 +391,26 @@ footer {
 .categoryDiv {
 	background: #666;
 	color: white;
-	height: 5vh;
-	line-height: 5vh;
-	max-width: 60%;
-	margin: 3vh auto;
+	width: 20em;
+	margin: 0.2em auto;
 	text-align: center;
-	font-size: 4vh;
+}
+
+.quiz-title {
+	background-color: #711b91;
+	color: white;
+	width: 20em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #questionNumber {
-	width: 330px;
-	height: 1em;
-	line-height: 1em;
-	font-size: 1em;
+	width: 20em;
 	margin: 0 auto;
 	text-align: center;
+	font-size: 0.7em;
 }
 
 #mediaContainer {

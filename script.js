@@ -40,6 +40,7 @@ function getCategories() {
 		categories = localStorage.getItem("categories");
 		categories = categories.split(","); // needed because LS only stores strings
 	} else {
+		// get all categories from HTML
 		var catBtn = document.querySelectorAll(".category-btn");
 		catBtn.forEach(function(elem) {
 			categories.push(elem.innerHTML);
@@ -227,8 +228,9 @@ function showRating() {
 }
 
 function displayProblem() {
+	document.getElementById("questionNumber").innerHTML = "Question " + (Number(problemIndex) + 1) + " of " + quiz.problems.length;
 	document.querySelector(".categoryDiv").innerHTML = quiz.category + " - Level " + quiz.level;
-	document.getElementById("questionNumber").innerHTML = "This is question " + (Number(problemIndex) + 1) + " of " + quiz.problems.length;
+	document.querySelector(".quiz-title").innerHTML = quiz.title;
 	document.querySelector(".questionText").innerHTML = quiz.problems[problemIndex].question;
 	var answer = document.querySelectorAll(".answerText");
 	answer.forEach(function(elem, index) {

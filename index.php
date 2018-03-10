@@ -45,11 +45,12 @@
 		</div>
 		
 		<div id="problem">
-			<div class="categoryDiv">Quiz Category</div>
 			<div id="questionNumber"></div>
+			<div class="categoryDiv"></div>
+			<div class="quiz-title"></div>
 			<div id="mediaContainer"></div>
 			<div class="questionDiv">
-				<p class="questionText">The question goes here</p>
+				<p class="questionText"></p>
 			</div>
 			<div class="answers">
 				<div class="answerButton noselect">
