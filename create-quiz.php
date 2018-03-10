@@ -7,7 +7,7 @@
 	</head>
 	
 	<body>
-		<form action="post-question.php" method="post">
+		<form action="postQuiz.php" method="post">
 			<div id="quiz">
 		<!-- This part is only needed once per quiz	-->
 				<div id="quiz-options">
