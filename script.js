@@ -40,7 +40,10 @@ function getCategories() {
 		categories = localStorage.getItem("categories");
 		categories = categories.split(","); // needed because LS only stores strings
 	} else {
-		categories = ["Vocabulary","Grammar","Pronunciation","Conversation","Idioms"];
+		var catBtn = document.querySelectorAll(".category-btn");
+		catBtn.forEach(function(elem) {
+			categories.push(elem.innerHTML);
+		});
 	}
 	// highlight category buttons
 	var catBtn = document.querySelectorAll(".category-btn");
