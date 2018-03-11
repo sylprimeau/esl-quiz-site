@@ -8,7 +8,7 @@
 	if (strpos($url, 'error=empty')) {
 		echo "You need to fill out every field.";
 	} elseif (strpos($url, 'error=username')) {
-		echo "Username already exists.";
+		echo "Username already exists. Please sign up using a different username.";
 	}
 
 	if (isset($_SESSION['id'])) {

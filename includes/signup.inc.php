@@ -31,8 +31,6 @@ if (empty($pwd)) {
 		exit();
 	} else {
 		$encrypted_password = password_hash($pwd, PASSWORD_DEFAULT);
-		// first set of vars is the names of columns IN the table
-		// 2nd set is the var names above
 		$sql = "INSERT INTO users (firstName, lastName, username, password) 
 		VALUES ('$first', '$last', '$uid', '$encrypted_password')";
 		$result = mysqli_query($conn, $sql);
