@@ -379,8 +379,14 @@ footer {
 	font-weight: 600;
 }
 
+.datetime {
+	font-size: 0.5em;
+	font-weight: bold;
+}
+
+/* display none until I work out float problem */
 .message {
-	display: none; /* need to work out float problems */
+	display: none;
 	color: #2e0cba;
 	margin-right: 0.5em;
 	font-size: 0.8em;
