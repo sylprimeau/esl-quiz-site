@@ -291,10 +291,6 @@ nav a {
 	background-color: #fbff97;
 }
 
-.Spelling {
-	background-color: #fcd691;
-}
-
 .level1 {
 	color: green;
 }
@@ -312,7 +308,7 @@ nav a {
 }
 
 .level5 {
-	color: orange;
+	color: black;
 }
 /* quiz preview end */
 
@@ -374,33 +370,10 @@ footer {
 	float: right;
 }
 
-.quiz-table .title {
-/*	font-style: italic;*/
-	font-weight: 600;
-}
 
-.datetime {
-	font-size: 0.5em;
-	font-weight: bold;
-}
 
-/* display none until I work out float problem */
-.message {
-	display: none;
-	color: #2e0cba;
-	margin-right: 0.5em;
-	font-size: 0.8em;
-	font-weight: bold;
-	text-transform: capitalize;
-}
 
-.message.perfect, .message.excellent {
-	color: green;
-}
 
-.message.fail {
-	color: #a80d0d;
-}
 
 
 
@@ -414,26 +387,21 @@ footer {
 .categoryDiv {
 	background: #666;
 	color: white;
-	width: 20em;
-	margin: 0.2em auto;
+	height: 5vh;
+	line-height: 5vh;
+	max-width: 60%;
+	margin: 3vh auto;
 	text-align: center;
-}
-
-.quiz-title {
-	background-color: #711b91;
-	color: white;
-	width: 20em;
-	height: 2em;
-	line-height: 2em;
-	text-align: center;
-	margin: 0 auto;
+	font-size: 4vh;
 }
 
 #questionNumber {
-	width: 20em;
+	width: 330px;
+	height: 1em;
+	line-height: 1em;
+	font-size: 1em;
 	margin: 0 auto;
 	text-align: center;
-	font-size: 0.7em;
 }
 
 #mediaContainer {
