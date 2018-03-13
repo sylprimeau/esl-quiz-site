@@ -27,27 +27,7 @@
 	<div class="quizzes-completed quiz-table">
 	<?php	foreach($quizzes as $quiz): ?>
 		<?php if ($quiz['completed'] != NULL): ?>
-			<?php
-				$quizScore = $quiz['score'];
-				$totalProbs = $quiz['totalProbs'];
-				$quizPecent = $quiz['score']/$quiz['totalProbs']*100;
-				if ($quizPecent == 100) {
-					$message = "perfect";
-				} elseif ($quizPecent >= 90) {
-					$message = "fantastic";
-				} elseif ($quizPecent >= 80) {
-					$message = "great";
-				} elseif ($quizPecent >= 70) {
-					$message = "good";
-				} elseif ($quizPecent >= 60) {
-					$message = "not bad";
-				} elseif ($quizPecent >= 50) {
-					$message = "pass";
-				} elseif ($quizPecent < 50) {
-					$message = "fail";
-				}
-			?>
-			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'><span class="message <?php echo $message ?>"><?php echo $message ?>!</span>Score: <?php echo $quizScore."/".$totalProbs; ?> (<?php echo round($quizPecent); ?>%)</span></p>
+			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'>Score: <?php echo $quiz['score']; ?>/<?php echo $quiz['totalProbs']; ?> (<?php echo round($quiz['score']/$quiz['totalProbs']*100); ?>%)</span></p>
 			<p><?php echo $quiz['title']; ?> - <?php echo $quiz['description']; ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
