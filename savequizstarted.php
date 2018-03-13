@@ -13,8 +13,11 @@
 		$resultQuery = mysqli_query($conn, $sqlQuery);
 		
 		if (mysqli_num_rows($resultQuery)==0) {
-			$sqlInsert = "INSERT INTO quizzes_taken (username, quizId) VALUES ('$username', '$quizId')";
+			$sqlInsert = "INSERT INTO quizzes_taken (username, quizId, started) VALUES ('$username', '$quizId', 1)";
 			$resultInsert = mysqli_query($conn, $sqlInsert);
+		} else {
+			$sqlUpdate = "UPDATE quizzes_taken SET username = $username, quizId = $quizId, started = 1";
+			$resultUpdate = mysqli_query($conn, $sqlUpdate);
 		}
 	}
 ?>

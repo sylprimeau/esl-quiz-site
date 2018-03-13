@@ -11,7 +11,6 @@
 		while ($row = mysqli_fetch_array($results)) {
 			$quizInfo = array(
 				"title" => $row['title'],
-				"totalProbs" => $row['totalProbs'],
 				"category" => $row['category'],
 				"level" => $row['level'],
 				"description" => $row['description'],
@@ -27,7 +26,7 @@
 	<div class="quizzes-completed quiz-table">
 	<?php	foreach($quizzes as $quiz): ?>
 		<?php if ($quiz['completed'] != NULL): ?>
-			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'>Score: <?php echo $quiz['score']; ?>/<?php echo $quiz['totalProbs']; ?> (<?php echo round($quiz['score']/$quiz['totalProbs']*100); ?>%)</span></p>
+			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'>Score: <?php echo $quiz['score']; ?></span></p>
 			<p><?php echo $quiz['title']; ?> - <?php echo $quiz['description']; ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
