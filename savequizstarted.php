@@ -14,7 +14,7 @@
 		
 		if (mysqli_num_rows($resultQuery)==0) {
 			$sqlInsert = "INSERT INTO quizzes_taken (username, quizId) VALUES ('$username', '$quizId')";
-			mysqli_query($conn, $sqlInsert);
+			$resultInsert = mysqli_query($conn, $sqlInsert);
 		}
 	}
 ?>

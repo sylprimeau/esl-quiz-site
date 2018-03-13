@@ -16,8 +16,7 @@
 				"level" => $row['level'],
 				"description" => $row['description'],
 				"completed" => $row['completed'],
-				"score" => $row['score'],
-				"datetime" => $row['datetime']
+				"score" => $row['score']
 			);
 			array_push($quizzes, $quizInfo);
 		}
@@ -49,7 +48,7 @@
 				}
 			?>
 			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'><span class="message <?php echo $message ?>"><?php echo $message ?>!</span><?php echo $quizScore."/".$totalProbs; ?> (<?php echo round($quizPecent); ?>%)</span></p>
-			<p><span class="title"><?php echo $quiz['title']; ?>: </span><?php echo $quiz['description']; ?><br><span class="datetime"><?php echo $quiz['datetime']; ?></span></p>
+			<p><span class="title"><?php echo $quiz['title']; ?>: </span><?php echo $quiz['description']; ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
 	</div>
