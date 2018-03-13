@@ -20,7 +20,6 @@
 							<li class="category-btn">Pronunciation</li>
 							<li class="category-btn">Conversation</li>
 							<li class="category-btn">Idioms</li>
-							<li class="category-btn">Spelling</li>
 						</ul>
 					</div>
 
