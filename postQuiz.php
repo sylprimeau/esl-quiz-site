@@ -43,37 +43,32 @@ $audUrl = array_map(array($conn, 'real_escape_string'), $audUrl);
 $vidUrl = $_POST['vidUrl'];
 $vidUrl = array_map(array($conn, 'real_escape_string'), $vidUrl);
 
-// perform query to get the number of the last quiz entered
-$sql = "SELECT MAX(quizId) AS maxId FROM quizzes";
-$result = mysqli_query($conn, $sql);
-while ($row = mysqli_fetch_array($result)) {
-	$quizId = ($row['maxId'] + 1).'<br>';
-}
+// query to get the last quizId in table and assign new quiz id
+$sqlLastQuizId = "SELECT MAX(quizId) AS maxId FROM quizzes";
+$resultLastQuizId = mysqli_query($conn, $sqlLastQuizId);
+$row = mysqli_fetch_assoc($resultLastQuizId);
+$newQuizId = ($row['maxId'] + 1);
 
-$sql2 = "INSERT INTO quizzes (creator, level, category, title, randomPs, randomAs) VALUES ('$creator', '$level', '$category', '$title', '$randomPs', '$randomAs')";
-$result2 = mysqli_query($conn, $sql2);
+settype($newQuizId, "integer"); // MySQL error thrown without this
+$totalProbs = count($question);
 
-if (mysqli_query($conn, $sql)) {
-	echo "New record created successfully<br>";
+$sqlInsertNewQuiz = "INSERT INTO quizzes (quizId, totalProbs, creator, level, category, title, randomPs, randomAs) VALUES ('$newQuizId', '$totalProbs', '$creator', '$level', '$category', '$title', '$randomPs', '$randomAs')";
+
+if (mysqli_query($conn, $sqlInsertNewQuiz)) {
+	echo "New quiz created successfully<br>";
 } else {
-	echo "Error: ".$sql."<br>".mysqli_error($conn)."<br>";
+	echo "Error: ".$sqlInsertNewQuiz."<br>".mysqli_error($conn)."<br>";
 }
 
-settype($quizId, "integer"); // MySQL error thrown without this
-$probLength = count($question);
-
-for ($i = 0; $i < $probLength; $i++) {
+for ($i = 0; $i < $totalProbs; $i++) {
 	$problemNum[$i] = $i + 1;
-	$sql3 = "INSERT INTO problems (quizId, problemNum, question, ansA, ansB, ansC, ansD, correctAns, notes, picUrl, audUrl, vidUrl) VALUES ('$quizId', '$problemNum[$i]','$question[$i]', '$ansA[$i]', '$ansB[$i]', '$ansC[$i]', '$ansD[$i]', '$corrAns[$i]', '$notes[$i]', '$picUrl[$i]', '$audUrl[$i]', '$vidUrl[$i]')";
-	$result3 = mysqli_query($conn, $sql3);
+	$sqlInsertProblems = "INSERT INTO problems (quizId, problemNum, question, ansA, ansB, ansC, ansD, correctAns, notes, picUrl, audUrl, vidUrl) VALUES ('$newQuizId', '$problemNum[$i]','$question[$i]', '$ansA[$i]', '$ansB[$i]', '$ansC[$i]', '$ansD[$i]', '$corrAns[$i]', '$notes[$i]', '$picUrl[$i]', '$audUrl[$i]', '$vidUrl[$i]')";
+	if (mysqli_query($conn, $sqlInsertProblems)) {
+		echo "New problems inserted successfully";
+	} else {
+		echo "Error: ".$sqlInsertProblems."<br>".mysqli_error($conn)."<br>";
+	}
 }
-
-if (mysqli_query($conn, $sql)) {
-	echo "New record created successfully";
-} else {
-	echo "Error: ".$sql."<br>".mysqli_error($conn)."<br>";
-}
-
 
 mysqli_close($conn);
 
