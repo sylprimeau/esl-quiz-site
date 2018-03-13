@@ -374,13 +374,7 @@ footer {
 	float: right;
 }
 
-.quiz-table .title {
-/*	font-style: italic;*/
-	font-weight: 600;
-}
-
 .message {
-	display: none; /* need to work out float problems */
 	color: #2e0cba;
 	margin-right: 0.5em;
 	font-size: 0.8em;
@@ -388,13 +382,15 @@ footer {
 	text-transform: capitalize;
 }
 
-.message.perfect, .message.excellent {
+.message.perfect, .message.fantastic {
 	color: green;
 }
 
 .message.fail {
 	color: #a80d0d;
 }
+
+
 
 
 

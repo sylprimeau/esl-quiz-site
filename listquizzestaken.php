@@ -47,8 +47,8 @@
 					$message = "fail";
 				}
 			?>
-			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'><span class="message <?php echo $message ?>"><?php echo $message ?>!</span><?php echo $quizScore."/".$totalProbs; ?> (<?php echo round($quizPecent); ?>%)</span></p>
-			<p><span class="title"><?php echo $quiz['title']; ?>: </span><?php echo $quiz['description']; ?></p>
+			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?><span class='score'><span class="message <?php echo $message ?>"><?php echo $message ?>!</span>Score: <?php echo $quizScore."/".$totalProbs; ?> (<?php echo round($quizPecent); ?>%)</span></p>
+			<p><?php echo $quiz['title']; ?> - <?php echo $quiz['description']; ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
 	</div>
@@ -59,7 +59,7 @@
 	<?php	foreach($quizzes as $quiz): ?>
 		<?php if ($quiz['completed'] == NULL): ?>
 			<p>Level <?php echo $quiz['level']; ?> - <?php echo $quiz['category']; ?></p>
-			<p><span class="title"><?php echo $quiz['title']; ?>: </span><?php echo $quiz['description']; ?></p>
+			<p><?php echo $quiz['title']; ?> - <?php echo $quiz['description']; ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
 	</div>
