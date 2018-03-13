@@ -34,7 +34,7 @@
 				if ($quizPecent == 100) {
 					$message = "perfect";
 				} elseif ($quizPecent >= 90) {
-					$message = "excellent";
+					$message = "fantastic";
 				} elseif ($quizPecent >= 80) {
 					$message = "great";
 				} elseif ($quizPecent >= 70) {
