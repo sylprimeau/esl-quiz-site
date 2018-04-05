@@ -207,6 +207,11 @@ nav a {
 	position: relative;
 }
 
+.quiz-preview:last-child {
+	margin-bottom: 1em;
+	border-bottom: 1px solid #37f;
+}
+
 .quiz-preview:hover {
 	background-color: rgb(224, 224, 224);
 }
@@ -330,6 +335,9 @@ footer {
 	text-align: center;
 	line-height: 2em;
 	font-size: 0.5em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 /***********************************************/
@@ -356,11 +364,16 @@ footer {
 	margin: 1em;
 }
 
+.quiz-table {
+	width: 90%;
+	margin: 2em auto;
+}
+
 .quiz-table p {
 	background-color: #9cf;
 	padding: 0.2em;
 	margin: 0 auto;
-	width: 90%;
+/*	width: 90%;*/
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 }
@@ -527,30 +540,6 @@ footer {
 
 
 
-table, th, td {
-	border: 1px solid black;
-	text-align: center;
-}
-
-table {
-	width: 500px;
-	border-collapse: collapse;
-	border: 3px solid black;
-}
-
-thead {
-	background-color: skyblue;
-	border: 3px solid black;
-}
-
-tbody {
-	background-color: lightblue;
-}
-
-
-
-
-
 
 #timesTaken {
 	float: left;
@@ -597,45 +586,3 @@ Hide rating function for now until you build out the user system so that you can
 .rating-stars:hover .stars-tooltip {
 	opacity: 1;
 }
-
-
-
-
-
-
-/*
-.category-div {
-	background: #666;
-	color: white;
-	height: 5vh;
-	line-height: 5vh;
-	max-width: 60vw;
-	margin: 3vh auto;
-	text-align: center;
-	font-size: 4vh;
-}
-
-.question-div {
-	background: lightgrey;
-	height: 12vh;
-	width: 90vw;
-	margin: 3vh auto;
-}
-
-.answer-btn {
-	background: lightblue;
-	margin: 2vh auto;
-	height: 12vh;
-	width: 80vw;
-}
-
-.question-text, .answer-text {
-	text-align: center;
-	position: relative;
-	top: 50%;
-	transform: translate(0, -50%);
-	width: 95%;
-	margin: auto;
-}
-
-*/

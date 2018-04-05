@@ -15,8 +15,9 @@
 	}
 
 /*
-Here, we'll need to also save the user's answers and date/time completed.
-Need to add columns dynamically (can it be done?) -- dynamic columns should not be done. Either make a new table for user scores OR add say 20 columns and put a limit on the number of questions any quiz can have to that number.
+
+MySQL also saves a datetime stamp whenever soemthing is added/changed in the table
+
 */
 
 ?>
