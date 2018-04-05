@@ -11,7 +11,7 @@
 
 			<div class="filters-box hide">
 				<div class="filters-box-inner">
-					<div class="x-close">Close</div>
+					<div class="x-close">X</div>
 					<div class="categories-div group">
 						<h2>Select categories</h2>
 						<ul>
@@ -40,7 +40,7 @@
 			<div class="quiz-previews" id="quiz-previews"></div>
 
 			<footer>
-				<p>Footer will go here</p>
+				<p>ESL Quiz Site 2017 All right reserved</p>
 			</footer>
 		</div>
 		
