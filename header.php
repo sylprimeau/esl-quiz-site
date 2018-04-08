@@ -31,6 +31,9 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 		
 			<header>
+					<?php if (!isset($_SESSION['username'])): ?>
+						<div class="login-prompt">Login to keep track of your history!</div>
+					<?php endif; ?>
 				<nav>
 <div class="fb-share-button" data-href="https://www.eslquizsite.com" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.eslquizsite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>
 					<div class="hamburger-menu hide">
@@ -53,7 +56,6 @@
 								<span>Login</span>
 							</a>
 						</div>
-						<div class="login-prompt">Login to keep track of your scores!</div>
 					<?php endif; ?>
 				</nav>
 			</header>

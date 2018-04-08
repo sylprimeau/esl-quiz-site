@@ -22,13 +22,7 @@ function init() {
 	getCategories();
 	getLevel();
 	getFilteredQuizPreviews();
-	flyUpLoginPrompt();
 	setListeners();
-}
-
-function flyUpLoginPrompt() {
-	var loginPrompt = document.querySelector(".login-prompt");
-	loginPrompt.classList.add("flyup");
 }
 
 // confirm abandoning mid-quiz (click on nav, etc)
