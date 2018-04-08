@@ -17,7 +17,7 @@
 						<ul>
 							<li class="category-btn">Vocabulary</li>
 							<li class="category-btn">Grammar</li>
-							<li class="category-btn">Pronunciation</li>
+							<li class="category-btn">General</li>
 							<li class="category-btn">Conversation</li>
 							<li class="category-btn">Idioms</li>
 							<li class="category-btn">Spelling</li>

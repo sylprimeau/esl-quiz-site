@@ -50,9 +50,10 @@
 					<?php else: ?>
 						<div class="login-btn">
 							<a href="login.php">
-								<span>Log in</span>
+								<span>Login</span>
 							</a>
 						</div>
+						<div class="login-prompt">Login to keep track of your scores!</div>
 					<?php endif; ?>
 				</nav>
 			</header>

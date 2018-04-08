@@ -19,7 +19,7 @@
 						<option value="Vocabulary">Vocabulary</option>
 						<option value="Grammar">Grammar</option>
 						<option value="Conversation">Conversation</option>
-						<option value="Pronunciation">Pronunciation</option>
+						<option value="General">General</option>
 						<option value="Idioms">Idioms</option>
 						<option value="Spelling">Spelling</option>
 					</select><br>

@@ -9,7 +9,7 @@
 	} else {
 		// defaults in case nothing was passed in
 		$level = 1;
-		$categories = "Vocabulary, Grammar, Pronunciation, Conversation, Idioms";
+		$categories = "Vocabulary, Grammar, General, Conversation, Idioms";
 	}
 
 	// explode to make an array, add single quotes to each value and then implode it back into a string.
