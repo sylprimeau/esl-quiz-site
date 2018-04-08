@@ -52,6 +52,12 @@ nav a {
 	color: #fff;
 }
 
+.fb-share-button {
+	float: left;
+	padding-left: 0.5em;
+	line-height: 1.5em;
+}
+
 .hamburger-menu {
 	position: absolute;
 	left: 0;
@@ -351,9 +357,17 @@ footer {
 	margin: 0 auto;
 }
 
+.login-page p {
+	margin: 0.5em;
+	font-size: 1.2em;
+}
+
 .login-page input {
 	display: block;
-	width: 100%;
+	width: 90%;
+	border-radius: 5px;
+	margin: 0.5em;
+	font-size: 1em;
 }
 
 /***********************************************/
@@ -453,6 +467,10 @@ footer {
 
 #mediaContainer {
 	text-align: center;
+}
+
+#mediaContainer > img {
+	border: 1px solid black;
 }
 
 .questionDiv {
