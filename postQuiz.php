@@ -11,6 +11,8 @@ $category = $_POST['category'];
 $category = mysqli_real_escape_string($conn, $category);
 $title = $_POST['title'];
 $title = mysqli_real_escape_string($conn, $title);
+$description = $_POST['description'];
+$description = mysqli_real_escape_string($conn, $title);
 $timed = (isset($_POST['timed']) ? $_POST['timed'] : 0);
 $timed = mysqli_real_escape_string($conn, $timed);
 $timeLimit = (isset($_POST['timeLimit']) ? $_POST['timeLimit'] : 0);
@@ -52,7 +54,7 @@ $newQuizId = ($row['maxId'] + 1);
 settype($newQuizId, "integer"); // MySQL error thrown without this
 $totalProbs = count($question);
 
-$sqlInsertNewQuiz = "INSERT INTO quizzes (quizId, totalProbs, creator, level, category, title, randomPs, randomAs) VALUES ('$newQuizId', '$totalProbs', '$creator', '$level', '$category', '$title', '$randomPs', '$randomAs')";
+$sqlInsertNewQuiz = "INSERT INTO quizzes (quizId, totalProbs, creator, level, category, title, description, randomPs, randomAs) VALUES ('$newQuizId', '$totalProbs', '$creator', '$level', '$category', '$title', '$description', '$randomPs', '$randomAs')";
 
 if (mysqli_query($conn, $sqlInsertNewQuiz)) {
 	echo "New quiz created successfully<br>";

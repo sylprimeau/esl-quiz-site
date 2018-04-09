@@ -25,6 +25,8 @@
 					</select><br>
 					<label for="title">Title:</label>
 					<input type="text" name="title" id="title" required><br><br>
+					<label for="description">Description:</label>
+					<textarea name="description" id="description" cols="30" rows="10"></textarea><br><br>
 					<label for="timed">Timed:</label>
 					<input type="checkbox" name="timed" id="timed" value="1"><br>
 					<label for="timeLimit">Time limit (0 = not timed):</label>
