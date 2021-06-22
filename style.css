@@ -15,6 +15,7 @@ body {
 	font-size: 1.2em;
 	background-color: #eef;
 	touch-action: manipulation;
+	overscroll-behavior: contain; /* not supported on iOS Chrome or Safari as of June 2021 */
 }
 
 header, .wrapper {
@@ -24,7 +25,6 @@ header, .wrapper {
 
 .wrapper {
 	background-color: #fff;
-	overscroll-behavior: none;
 }
 
 button {
