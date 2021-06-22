@@ -43,7 +43,7 @@
 						<div class="lines"></div>
 					</div>
 					<div class="site-logo">
-						<a href="index.php">ESL Quiz Site</a>
+						<a href="index.php">ESL Quiz Site - Test Yourself!</a>
 					</div>
 					<?php if (isset($_SESSION['username'])): ?>
 						<div class="login-btn">
