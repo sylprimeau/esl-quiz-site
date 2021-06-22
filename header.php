@@ -13,7 +13,7 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-114211059-1');
 		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<meta name="google-site-verification" content="cz1joXHj3pW1RBpVSyAHgRvPoZbcjVbqiaXNb-Atq3E" />
