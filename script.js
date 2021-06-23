@@ -68,6 +68,7 @@ function getLevel() {
 	levelBtn[level-1].classList.toggle("selected");
 }
 
+// Note: Should this be refactored? Looks like I set listeners for everything at once but maybe they should only be set when the items are shown?
 function setListeners() {
 	var navBar = document.querySelector("nav");
 	navBar.addEventListener("click", function(e) {

@@ -37,6 +37,10 @@ button {
 	cursor: pointer;
 }
 
+.warning-text {
+	color: red;
+}
+
 /***********************************************/
 /***********************************************/
 /***********************************************/
@@ -437,6 +441,10 @@ footer {
 .datetime {
 	font-size: 0.5em;
 	font-weight: bold;
+}
+
+.delete-account {
+	background-color: red;
 }
 
 /* display none until I work out float problem */
