@@ -387,6 +387,17 @@ footer {
 /***********************************************/
 /***********************************************/
 
+.profile-page {
+	max-width: 800px;
+	margin: auto;
+	background-color: white;
+	padding: 1em 0;
+}
+
+.profile-page h1 {
+	padding: 1em;
+}
+
 .profile-page p {
 	margin: 1em;
 }
