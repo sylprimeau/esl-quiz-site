@@ -13,7 +13,7 @@
 				<div class="filters-box-inner">
 					<div class="x-close">X</div>
 					<div class="categories-div group">
-						<h2>Select categories</h2>
+						<h4>Select one or more categories</h4>
 						<ul>
 							<li class="category-btn">Vocabulary</li>
 							<li class="category-btn">Grammar</li>
@@ -25,7 +25,7 @@
 					</div>
 
 					<div class="levels-div group">
-						<h2>Select a level</h2>
+						<h4>Select ONE level</h4>
 						<ul>
 							<li class="level-btn">Level 1 (basic)</li>
 							<li class="level-btn">Level 2 (easy)</li>

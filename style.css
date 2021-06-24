@@ -179,11 +179,11 @@ nav a {
 	list-style: none;
 }
 
-.filters-box .group h2 {
-	margin: 0.3em 0;
+.filters-box .group h4 {
+	margin: 0.5em 0;
 }
 
-.filters-box h2 {
+.filters-box h4 {
 	text-align: center;
 }
 
@@ -191,17 +191,19 @@ nav a {
 	margin: 0 auto;
 	font-size: 1.5em;
 	text-align: center;
-	background-color: #27f;
+	background-color: lightgreen;
 	user-select: none;
 }
 
 .level-btn.selected, .category-btn.selected {
-	box-shadow: inset 0px 0px 5px 3px #97c0ff;
-	background-color: #5393f4;
+	/* box-shadow: inset 0px 0px 5px 3px #97c0ff; */
+	background-color: green;
+	color: white;
 }
 
 .level-btn:hover, .category-btn:hover {
-	background-color: #1c61d0;
+	background-color: darkgreen;
+	color: white;
 	cursor: pointer;
 }
 /* filters div end */
