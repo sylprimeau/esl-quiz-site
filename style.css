@@ -14,8 +14,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 1.2em;
 	background-color: #eef;
-	touch-action: manipulation;
-	overscroll-behavior: contain; /* not supported on iOS Chrome or Safari as of June 2021 */
+	touch-action: manipulation; /* prevents double tap zoom */
 }
 
 header, .wrapper {
