@@ -11,22 +11,14 @@
 		</form>
 		
 		<?php include "listquizzestaken.php"; ?>
+		
 		<p class="warning-text">Warning! Clicking the "Delete account" button will delete your account and remove ALL information tied to that account. There is no way to retrieve it afterwards!</p>
-		<button class="delete-account">Delete account</button>
+		<form action="includes/delete-account.inc.php">
+			<button class="delete-account">Delete account</button>
+		</form>
 		
 	<?php endif; ?>
 </section>
-
-<script>
-	// delete account
-	var deleteAccountBtn = document.querySelector(".delete-account");
-	deleteAccountBtn.addEventListener("click", deleteUserAcct);
-
-	function deleteUserAcct() {
-		alert("Sorry! This functionality is still in the development phase. Your account cannot be deleted at this time.");
-	}
-</script>
-
 
 
 
