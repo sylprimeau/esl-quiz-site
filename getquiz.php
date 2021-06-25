@@ -7,8 +7,6 @@ if (isset($_GET['quizId'])) {
 	$quizId = $_GET['quizId'];
 } else {
 	// get random quiz
-	// "$completedQuizIds" used to take a value passed in through AJAX but I removed those from the JS file so it's not really needed anymore. But I can't delete it here yet because I need  the function that finds a random quiz and it uses it. Obviously, without a value, there is not "unique quiz" to look and match against completed quizzes for anymore but I want to keep that function so that I can reuse it when I use "completedQuizzes" gotten from the db.
-	$completedQuizIds = explode(",", "");
 	$level = intval($_GET['level']);
 	$categories = explode(",", $_GET['categories']); // creates array from string input
 
@@ -30,19 +28,26 @@ if (isset($_GET['quizId'])) {
 		array_push($returnedQuizIds, $row['quizId']);
 	}
 
-	// this will give me access to $quizzesCompletedList
-	include "getquizzescompleted.php";
-	
-	// take returned quizzes and filter out the ones that have been completed
-	$uncompletedQuizzes = array_diff($returnedQuizIds, $quizzesCompletedList);
 
-	if (count($uncompletedQuizzes) < 1) {
-		exit('');
+	if (isset($_SESSION['username'])) {
+		// this will give me access to $quizzesCompletedList
+		include "getquizzescompleted.php";
+		// take returned quizzes and filter out the ones that have been completed
+		$uncompletedQuizzes = array_diff($returnedQuizIds, $quizzesCompletedList);
+		if (count($uncompletedQuizzes) < 1) {
+			exit('');
+		}
+		// choose a random quiz from the list of quizzes not completed
+		$index = array_rand($uncompletedQuizzes, 1); // this randomly selects an index from the array
+		$quizId = $uncompletedQuizzes[$index]; // now assign the value of that index (or key) to $quizId
+	} else {
+		// choose a random quiz from the list of all returned quizzes
+		$index = array_rand($returnedQuizIds, 1); // this randomly selects an index from the array
+		$quizId = $returnedQuizIds[$index]; // now assign the value of that index (or key) to $quizId
 	}
+	
 
-	// choose a random quiz from the list
-	$index = array_rand($uncompletedQuizzes, 1); // this randomly selects an index from the array
-	$quizId = $uncompletedQuizzes[$index]; // now assign the value of that index (or key) to $quizId
+
 }
 
 
