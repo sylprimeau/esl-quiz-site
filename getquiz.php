@@ -36,11 +36,14 @@ if (isset($_GET['quizId'])) {
 	// take returned quizzes and filter out the ones that have been completed
 	$uncompletedQuizzes = array_diff($returnedQuizIds, $quizzesCompletedList);
 
+	if (count($uncompletedQuizzes) < 1) {
+		exit('');
+	}
+
 	// choose a random quiz from the list
 	$index = array_rand($uncompletedQuizzes, 1); // this randomly selects an index from the array
 	$quizId = $uncompletedQuizzes[$index]; // now assign the value of that index (or key) to $quizId
 }
-
 
 
 /*

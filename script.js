@@ -204,14 +204,9 @@ function getQuiz(id) {
 			problemIndex = 0;
 			var userAnswers = [];
 			if (!quiz) {
-				if (level === 5) {
-					alert("There are no more quizzes for your selected category. Try a lower level or other categories.");
-					clearScreen();
-					return;
-				} else {
-					alert("There are no more quizzes for your selected category in this level. Let's try the next level!");
-					nextLevel();
-				}
+				alert("Sorry! You've already completed all of the quizzes in your selected categories for this level. Try selecting different categories or a different level!");
+				// nextLevel();
+				window.location="../index.php";
 			} else {
 				quiz = JSON.parse(quiz);
 				console.table(quiz);
@@ -443,11 +438,11 @@ function shuffleArray(arr, corrAns, probNum) {
   return newArr;
 }
 
-function nextLevel() {
-	toggleLevelBtnColor(level, document.querySelectorAll(".level-btn"));
-	level += 1;
-	getQuiz();
-}
+// function nextLevel() {
+// 	toggleLevelBtnColor(level, document.querySelectorAll(".level-btn"));
+// 	level += 1;
+// 	getQuiz();
+// }
 
 // why do i have to pass quizScore as a parameter? It's global...
 function updateQuizInfo(quizScore) {
