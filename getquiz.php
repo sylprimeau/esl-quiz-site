@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "dbh.php";
 
 if (isset($_GET['quizId'])) {
@@ -30,23 +30,15 @@ if (isset($_GET['quizId'])) {
 		array_push($returnedQuizIds, $row['quizId']);
 	}
 
-	// get random quiz that user has not done yet
-	$foundUnique = false;
-	do {
-		if (count($returnedQuizIds) < 1) {
-			exit('');
-		}
-		$rndNum = mt_rand(0,count($returnedQuizIds)-1);
-		if (!in_array($returnedQuizIds[$rndNum], $completedQuizIds)) {
-			$quizId = $returnedQuizIds[$rndNum];
-			$foundUnique = true;
-		} else {
-			array_splice($returnedQuizIds, $rndNum, 1);
-			if (count($returnedQuizIds) < 1) {
-				exit('');
-			}
-		}
-	} while ($foundUnique == false && count($returnedQuizIds) > 0);
+	// this will give me access to $quizzesCompletedList
+	include "getquizzescompleted.php";
+	
+	// take returned quizzes and filter out the ones that have been completed
+	$uncompletedQuizzes = array_diff($returnedQuizIds, $quizzesCompletedList);
+
+	// choose a random quiz from the list
+	$index = array_rand($uncompletedQuizzes, 1); // this randomly selects an index from the array
+	$quizId = $uncompletedQuizzes[$index]; // now assign the value of that index (or key) to $quizId
 }
 
 
