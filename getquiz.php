@@ -28,7 +28,8 @@ if (isset($_GET['quizId'])) {
 		array_push($returnedQuizIds, $row['quizId']);
 	}
 
-
+	// If the user is logged in, show them only quizzes they haven't completed when clicking "random quiz"
+	// If not logged in, show them any quiz
 	if (isset($_SESSION['username'])) {
 		// this will give me access to $quizzesCompletedList
 		include "getquizzescompleted.php";
@@ -41,6 +42,9 @@ if (isset($_GET['quizId'])) {
 		$index = array_rand($uncompletedQuizzes, 1); // this randomly selects an index from the array
 		$quizId = $uncompletedQuizzes[$index]; // now assign the value of that index (or key) to $quizId
 	} else {
+		if (count($returnedQuizIds) < 1) {
+			exit('');
+		}
 		// choose a random quiz from the list of all returned quizzes
 		$index = array_rand($returnedQuizIds, 1); // this randomly selects an index from the array
 		$quizId = $returnedQuizIds[$index]; // now assign the value of that index (or key) to $quizId

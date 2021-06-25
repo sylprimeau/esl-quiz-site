@@ -204,7 +204,7 @@ function getQuiz(id) {
 			problemIndex = 0;
 			var userAnswers = [];
 			if (!quiz) {
-				alert("Sorry! You've already completed all of the quizzes in your selected categories for this level. Try selecting different categories or a different level!");
+				alert("Sorry! Either you've already completed all of the available quizzes in your selected categories for this level, or your selections returned no quizzes. Please try selecting different categories and/or a different level.");
 				// nextLevel();
 				window.location="../index.php";
 			} else {
