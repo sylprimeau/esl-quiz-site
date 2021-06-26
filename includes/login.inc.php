@@ -22,8 +22,6 @@ if ($pwdMatch == 0) {
 	} else {
 		$_SESSION['id'] = $row['id'];
 		$_SESSION['username'] = $row['username'];
-		$_SESSION['firstName'] = $row['firstName'];
-		$_SESSION['lastName'] = $row['lastName'];
 	}
 
 	header("Location: ../index.php");

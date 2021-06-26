@@ -2,19 +2,9 @@
 session_start();
 include '../dbh.php';
 
-$first = $_POST['first'];
-$last = $_POST['last'];
 $uid = $_POST['uid'];
 $pwd = $_POST['pwd'];
 
-if (empty($first)) {
-	header("Location: ../signup.php?error=empty");
-	exit();
-}
-if (empty($last)) {
-	header("Location: ../signup.php?error=empty");
-	exit();
-}
 if (empty($uid)) {
 	header("Location: ../signup.php?error=empty");
 	exit();
@@ -31,8 +21,7 @@ if (empty($pwd)) {
 		exit();
 	} else {
 		$encrypted_password = password_hash($pwd, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO users (firstName, lastName, username, password) 
-		VALUES ('$first', '$last', '$uid', '$encrypted_password')";
+		$sql = "INSERT INTO users (username, password) VALUES ('$uid', '$encrypted_password')";
 		$result = mysqli_query($conn, $sql);
 
 		header("Location: ../index.php");

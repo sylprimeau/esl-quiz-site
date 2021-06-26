@@ -5,7 +5,7 @@
 	<?php	if (!isset($_SESSION['id'])): ?>
 		<p>You must log in or create an account to view your profile.</p>
 	<?php else: ?>
-		<p>Hello <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName'] ?>!</p>
+		<p>Hello <?php echo $_SESSION['username'] ?>!</p>
 		<form action="includes/logout.inc.php">
 			<button>Log out</button>
 		</form>
