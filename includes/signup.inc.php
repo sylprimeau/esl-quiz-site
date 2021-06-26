@@ -24,6 +24,6 @@ if (empty($pwd)) {
 		$sql = "INSERT INTO users (username, password) VALUES ('$uid', '$encrypted_password')";
 		$result = mysqli_query($conn, $sql);
 
-		header("Location: ../index.php");
+		header("Location: ../signup-success.php");
 	}
 }
