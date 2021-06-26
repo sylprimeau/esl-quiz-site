@@ -28,11 +28,11 @@
 	})
 
 	function confirmDeleteAccount(e) {
-	var confirmDeleteAccount = confirm("Are you SURE you want to delete your account? You cannot undo this action.");
-	if (!confirmDeleteAccount) {
-		e.preventDefault();
+		var confirmDeleteAccount = confirm("Are you SURE you want to delete your account? You cannot undo this action.");
+		if (!confirmDeleteAccount) {
+			e.preventDefault();
+		}
 	}
-}
 </script>
 
 

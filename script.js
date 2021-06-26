@@ -183,6 +183,13 @@ function getFilteredQuizPreviews() {
 
 function quizPreviewListeners(elem) {
 	elem.addEventListener("click", function() {
+		// checks to see if any of the elem's children has "completed" class and asks for confirmation
+		if (elem.querySelector(".completed")) {
+			var confirmRetake = confirm("You've already completed this one. Are you sure you want to do it again? Your new score will overwrite the old one.");
+			if (!confirmRetake) {
+				e.preventDefault();
+			}
+		}
 		console.log("Quiz ID is: " + elem.dataset.quizid);
 		document.querySelector(".quiz-list").classList.toggle("hide");
 		document.querySelector("#problem").style.display = "block";
