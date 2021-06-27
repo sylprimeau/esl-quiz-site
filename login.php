@@ -18,6 +18,7 @@
 						<p>Create a new account</p>
 						<input type="text" name="uid" placeholder="Username">
 						<input type="password" name="pwd" placeholder="Password">
+						<input type="password" name="pwd-verify" placeholder="Confirm password">
 						<button type="submit">Sign up</button>
 					</form>
 				<?php endif; ?>
