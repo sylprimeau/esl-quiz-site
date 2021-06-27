@@ -11,7 +11,6 @@
 
 			<div class="filters-box hide">
 				<div class="filters-box-inner">
-					<div class="x-close">X</div>
 					<div class="categories-div group">
 						<h4>Select one or more categories</h4>
 						<ul>
@@ -34,6 +33,7 @@
 							<li class="level-btn">Level 5 (native)</li>
 						</ul>
 					</div>
+					<div class="x-close">OK</div>
 				</div>
 			</div>
 
