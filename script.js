@@ -70,8 +70,14 @@ function getLevel() {
 
 // Note: Should this be refactored? Looks like I set listeners for everything at once but maybe they should only be set when the items are shown?
 function setListeners() {
-	var navBar = document.querySelector("nav");
-	navBar.addEventListener("click", function(e) {
+	var siteLogo = document.querySelector(".site-logo");
+	siteLogo.addEventListener("click", function(e) {
+		if (problemIndex >= 0) {
+			confirmAbandon(e);
+		}
+	});
+	var loginBtn = document.querySelector(".login-btn");
+	loginBtn.addEventListener("click", function(e) {
 		if (problemIndex >= 0) {
 			confirmAbandon(e);
 		}
