@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<meta name="google-site-verification" content="cz1joXHj3pW1RBpVSyAHgRvPoZbcjVbqiaXNb-Atq3E" />
 		<title>The ESL Quiz Site</title>
+		<script src="https://kit.fontawesome.com/ee939cfd30.js" crossorigin="anonymous"></script>
 	</head>
 	
 	<body>
@@ -41,13 +42,13 @@
 					<?php if (isset($_SESSION['username'])): ?>
 						<div class="login-btn">
 							<a href="profile.php">
-								<span>Profile</span>
+							<span class="fas fa-user"></span>
 							</a>
 						</div>
 					<?php else: ?>
 						<div class="login-btn">
 							<a href="login.php">
-								<span>Login</span>
+								<span>Login</span> <!-- Don't know why can't get this to work with login icon code from FA with either "fa-solid" or "fas" -->
 							</a>
 						</div>
 					<?php endif; ?>
