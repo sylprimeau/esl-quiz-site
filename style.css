@@ -370,6 +370,10 @@ footer {
 /***********************************************/
 
 /* login page */
+.login-page {
+	min-height: 90vh;
+}
+
 .login-page form {
 	width: 21em;
 	padding: 2em 0;
