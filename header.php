@@ -22,9 +22,9 @@
 	</head>
 	
 	<body>
-<!--		FB share button SDK code-->
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=468601610243777&autoLogAppEvents=1" nonce="3EVAppYm"></script>
+		<!-- FB share button SDK code -->
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=468601610243777&autoLogAppEvents=1" nonce="3EVAppYm"></script>
 			<header>
 					<?php if (!isset($_SESSION['username'])): ?>
 						<div class="login-prompt">Login to keep track of your history!</div>

@@ -371,13 +371,13 @@ footer {
 
 /* login page */
 .login-page form {
-	width: 15em;
+	width: 21em;
 	padding: 2em 0;
 	margin: 0 auto;
 }
 
 .login-page p {
-	margin: 0.5em;
+	margin: 0 0.5em 1em 0.5em;
 	font-size: 1.2em;
 }
 
@@ -394,8 +394,8 @@ footer {
 /***********************************************/
 
 .profile-page {
-	max-width: 800px;
-	margin: auto;
+	/* max-width: 800px;
+	margin: auto; */
 	background-color: white;
 	padding: 1em 0;
 }
