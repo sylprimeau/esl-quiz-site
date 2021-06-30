@@ -25,6 +25,8 @@
 					</select><br>
 					<label for="title">Title:</label>
 					<input type="text" name="title" id="title" required><br><br>
+					<label for="quizImgUrl">Quiz Image URL (optional)</label>
+					<input type="text" name="quizImgUrl" id="quizImgUrl"><br>
 					<label for="description">Description:</label>
 					<textarea name="description" id="description" cols="30" rows="10"></textarea><br><br>
 					<label for="timed">Timed:</label>
