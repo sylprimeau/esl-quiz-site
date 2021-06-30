@@ -43,6 +43,11 @@
 			<?php endif; ?>
 		<?php endif; ?>
 		<h3 class="title"><?php echo $row['title']; ?></h3>
+		<?php if (isset($row['quizImgUrl'])): ?>
+			<?php if ($row['quizImgUrl'] <> ''): ?>
+				<img class="quizImgUrl" src="<?php echo $row['quizImgUrl']; ?>" alt="">
+			<?php endif; ?>
+		<?php endif; ?>
 		<p class="description"><?php echo $row['description']; ?></p>
 		<h5 class="category <?php echo $row['category']; ?>"><?php echo $row['category']; ?></h5>
 		<h5 class="level level<?php echo $row['level']; ?>">Level <?php echo $row['level']; ?></h5>

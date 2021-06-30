@@ -249,7 +249,7 @@ nav a {
 
 .quiz-preview .completed, .quiz-preview .started {
 	position: absolute;
-	top: 2em;
+	top: 4em;
 	right: 1em;
 	height: 4em;
 	line-height: 4em;
@@ -271,18 +271,22 @@ nav a {
 	color: red;
 	border-radius: 50%;
 	width: 4em;
-	top: 1em;
+	top: 2.5em;
+	right: 2em;
 }
 
 .quiz-preview .category {
 	color: black;
-	left: 0;
-	bottom: 0;
+	right: 0;
+	top: 0;
 }
 
 .quiz-preview .level {
-	right: 0;
-	bottom: 0;
+	left: 0;
+	top: 0;
+	background-color: rgb(97, 97, 97);
+	color: white;
+	box-shadow: 3px 3px 10px rgb(121 121 121);
 }
 
 .quiz-preview .title {
@@ -292,8 +296,16 @@ nav a {
 	color: #324fcc;
 }
 
-.quiz-preview p {
-	padding: 0 1em;
+.quiz-preview .quizImgUrl {
+	float: left;
+	left: 20px;
+	height: 100px;
+	width: 100px;
+	margin: 0 1em;
+}
+
+.quiz-preview .description {
+	padding: 1em 2em;
 }
 
 .quiz-random-start {
@@ -328,25 +340,6 @@ nav a {
 	background-color: #fcd691;
 }
 
-.level1 {
-	color: green;
-}
-
-.level2 {
-	color: red;
-}
-
-.level3 {
-	color: blue;
-}
-
-.level4 {
-	color: purple;
-}
-
-.level5 {
-	color: orange;
-}
 /* quiz preview end */
 
 /***********************************************/
