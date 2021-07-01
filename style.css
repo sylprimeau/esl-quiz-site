@@ -252,7 +252,7 @@ nav a {
 
 .quiz-preview .description {
 	text-align: center;
-	margin: 1em;
+	margin: 0.5em 1em;
 }
 
 .quiz-preview:last-child {
