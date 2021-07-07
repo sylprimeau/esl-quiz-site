@@ -39,7 +39,9 @@
 	<div class="quiz-preview quiz-specific-start" data-quizid=<?php echo $row['quizId']; ?>>
 		<?php if (isset($row['quizImgUrl'])): ?>
 			<?php if ($row['quizImgUrl'] <> ''): ?>
-				<img class="quizImgUrl" src="<?php echo $row['quizImgUrl']; ?>" alt="">
+				<img class="quizImg quizImgUrl" src="<?php echo $row['quizImgUrl']; ?>" alt="">
+			<?php else: ?>
+				<div class="quizImg noQuizImgUrl"><?php echo $row['title']; ?></div>
 			<?php endif; ?>
 		<?php endif; ?>
 		<div class="quiz-preview-text">
