@@ -472,9 +472,7 @@ footer {
 	background-color: red;
 }
 
-/* display none until I work out float problem */
 .message {
-	display: none;
 	color: #2e0cba;
 	margin-right: 0.5em;
 	font-size: 0.8em;
