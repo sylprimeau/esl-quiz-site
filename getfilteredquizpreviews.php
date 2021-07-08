@@ -41,7 +41,7 @@
 			<?php if ($row['quizImgUrl'] <> ''): ?>
 				<img class="quizImg quizImgUrl" src="<?php echo $row['quizImgUrl']; ?>" alt="">
 			<?php else: ?>
-				<div class="quizImg noQuizImgUrl"><?php echo $row['title']; ?></div>
+				<div class="quizImg noQuizImgUrl"><p><?php echo $row['title']; ?></p></div>
 			<?php endif; ?>
 		<?php endif; ?>
 		<div class="quiz-preview-text">

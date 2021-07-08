@@ -244,6 +244,9 @@ nav a {
 .quiz-preview .noQuizImgUrl {
 	background-color: tan;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .quiz-preview .quiz-preview-text {
