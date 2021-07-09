@@ -3,6 +3,11 @@
 include "dbh.php";
 
 
+/* **************
+I think you can delete this file. I forget why this is here but nothing seems to refer to it and it's very similar to getquiz.php so I think what happened is that I created that to replace this and forgot to delete this one? Anyway, today is July 9th and I renamed it with "-candeletethis" at the end so if it doesn't break anything after a couple of weeks of testing, go ahead and delete this.
+******************** */
+
+
 /* Clean this up so that you only receive the info you need for it to work without screwing up. You only need the quizId and not the others. */
 $quizId = intval($_GET['quizId']);
 
