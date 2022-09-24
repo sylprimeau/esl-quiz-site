@@ -48,3 +48,6 @@ Temporary Items
 
 # DB connection file contains passwords
 dbh.php
+
+#Matomo directory
+matomo
